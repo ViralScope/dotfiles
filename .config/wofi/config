@@ -1,0 +1,30 @@
+# Size and position
+width=600
+height=400
+location=center
+
+# Core behavior
+show=drun
+prompt=Search...
+
+# Important: Remove or set to false
+gtk_dark=false
+
+# Search behavior
+matching=fuzzy
+insensitive=true
+
+# Visual elements
+allow_markup=true
+allow_images=true
+image_size=40
+dynamic_lines=true
+
+# Layout
+no_actions=true
+halign=fill
+orientation=vertical
+content_halign=fill
+
+# Performance
+cache_file=/home/mehti/.cache/wofi-cache
