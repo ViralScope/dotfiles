@@ -1,9 +1,17 @@
 ## Install required packages (pacman)
-    sudo pacman -S dunst wofi hyprpolkitagent cachyos-gaming-meta steam hyprpaper waybar​
+    sudo pacman -S --needed \
+    dunst \
+    wofi \
+    hyprpolkitagent \
+    cachyos-gaming-meta \
+    steam \
+    hyprpaper \
+    waybar
+​
 
 ## Clone and copy configs
-    git clone https://github.com/ViralScope/minimal-hyprland-dotfiles.git
-    cd minimal-hyprland-dotfiles
+    git clone https://github.com/ViralScope/dotfiles.git
+    cd dotfiles
     rm -rf .git
     cp hello.jpg "/home/$USER/Pictures/"
     cd .config
