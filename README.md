@@ -8,6 +8,11 @@
     mkdir -p "$HOME/.config"
     cp -r dunst hypr kitty wofi "$HOME/.config/"
     
+## Lazyvim installation
+    sudo pacman -S neovim 
+    git clone https://github.com/LazyVim/starter ~/.config/nvim
+    rm -rf ~/.config/nvim/.git
+
 ## Keybinds​
 
 | Key / Combo                   | Action                                      |
