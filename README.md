@@ -23,6 +23,8 @@
     sudo systemctl status pci-latency.service
     echo "net.core.default_qdisc = cake" | sudo tee /etc/sysctl.d/99-cachy-networking.conf
     echo "net.ipv4.tcp_congestion_control = bbr" | sudo tee -a /etc/sysctl.d/99-cachy-networking.conf
+    echo "net.ipv4.tcp_fastopen = 3" | sudo tee -a /etc/sysctl.d/99-cachy-networking.conf
+    systemctl disable --now ananicy-cpp
 
 ## AstroNvim installation
     sudo pacman -S neovim 
