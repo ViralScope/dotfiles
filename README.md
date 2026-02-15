@@ -1,36 +1,7 @@
-## Install required packages (pacman)
-    sudo pacman -S --needed \
-    dunst \
-    wofi \
-    hyprpolkitagent \
-    cachyos-gaming-meta \
-    steam \
-    hyprpaper \
-    waybar
-​
+## Setup
 
-## Clone and copy configs
-    git clone https://github.com/ViralScope/dotfiles.git
-    cd dotfiles
-    rm -rf .git
-    cp hello.jpg "/home/$USER/Pictures/"
-    cd .config
-    mkdir -p "$HOME/.config"
-    cp -r dunst hypr kitty wofi waybar "$HOME/.config/"
-    reboot
-
-## systemctl
-    sudo systemctl status pci-latency.service
-    echo "net.core.default_qdisc = cake" | sudo tee /etc/sysctl.d/99-cachy-networking.conf
-    echo "net.ipv4.tcp_congestion_control = bbr" | sudo tee -a /etc/sysctl.d/99-cachy-networking.conf
-    echo "net.ipv4.tcp_fastopen = 3" | sudo tee -a /etc/sysctl.d/99-cachy-networking.conf
-    systemctl disable --now ananicy-cpp
-
-## AstroNvim installation
-    sudo pacman -S neovim 
-    git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
-    rm -rf ~/.config/nvim/.git
-    nvim
+    chmod +x cachy-setup.sh
+    ./cachy-setup.sh
 
 ## Keybinds​
 
