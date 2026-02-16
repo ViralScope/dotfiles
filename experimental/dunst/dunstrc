@@ -1,0 +1,118 @@
+[global]
+    ### DISPLAY & POSITIONING ###
+    monitor = 0
+    follow = mouse
+    width = (300, 300)
+    height = (0, 150)
+    origin = top-right
+    offset = (30, 40)
+    
+    ### APPEARANCE ###
+    transparency = 10
+    corner_radius = 6
+    padding = 10
+    horizontal_padding = 12
+    text_icon_padding = 10
+    frame_width = 2
+    frame_color = "#33ccff"
+    separator_height = 2
+    separator_color = frame
+    
+    ### PROGRESS BAR ###
+    progress_bar = true
+    progress_bar_height = 6
+    progress_bar_corner_radius = 3
+    progress_bar_min_width = 100
+    progress_bar_max_width = 300
+    
+    ### TEXT & FORMATTING ###
+    font = Monospace 10
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    
+    ### ICONS ###
+    icon_position = left
+    min_icon_size = 24
+    max_icon_size = 32
+    icon_path = /usr/share/icons/hicolor/48x48/apps/:/usr/share/pixmaps/
+    
+    ### BEHAVIOR ###
+    sort = yes
+    sticky_history = yes
+    history_length = 20
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    
+    ### MOUSE ACTIONS ###
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
+    
+    ### INTEGRATIONS ###
+    dmenu = /usr/bin/wofi --dmenu -p "Notification"
+    browser = xdg-open
+
+[urgency_low]
+    background = "#1e1e1e"
+    foreground = "#a0a0a0"
+    frame_color = "#33ccff"
+    timeout = 5
+
+[urgency_normal]
+    background = "#2a2a2a"
+    foreground = "#ffffff"
+    frame_color = "#33ccff"
+    timeout = 8
+
+[urgency_critical]
+    background = "#ff4444"
+    foreground = "#000000"
+    frame_color = "#ff0000"
+    timeout = 0
+
+### CUSTOM RULES ###
+# Volume/Brightness (quick transient notifications)
+[volume_brightness]
+    summary = "*olume*|*rightness*"
+    background = "#1e1e1e"
+    foreground = "#33ccff"
+    frame_color = "#33ccff"
+    timeout = 2
+    history_ignore = yes
+
+# Battery Critical
+[battery_critical]
+    summary = "*attery*"
+    body = "*ritical*|*ow*"
+    urgency = critical
+    background = "#ff4444"
+    foreground = "#000000"
+
+# Battery Charging
+[battery_charging]
+    summary = "*attery*"
+    body = "*harging*"
+    background = "#1e1e1e"
+    foreground = "#5dd9ff"
+    frame_color = "#33ccff"
+    timeout = 5
+
+# Media Notifications
+[media]
+    category = "player"
+    background = "#1e1e1e"
+    foreground = "#a6e3a1"
+    frame_color = "#33ccff"
+    timeout = 4
+    history_ignore = yes

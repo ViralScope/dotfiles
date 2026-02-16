@@ -1,0 +1,265 @@
+/* ===== ANIMATIONS ===== */
+@keyframes urgent-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(243, 139, 168, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(243, 139, 168, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(243, 139, 168, 0.4); }
+}
+
+@keyframes temperature-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+@keyframes charging-pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+@keyframes tray-attention {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+* {
+  min-height: 0;
+  min-width: 0;
+  font-family: Lexend, "JetBrainsMono NFP", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* ===== BAR BASE ===== */
+window#waybar {
+  transition-property: background-color, opacity;
+  transition-duration: 0.3s;
+  background-color: rgba(17, 17, 27, 0.95);
+  border-bottom: 2px solid rgba(137, 180, 250, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+window#waybar.hidden {
+  opacity: 0.15;
+  background-color: rgba(17, 17, 27, 0.8);
+}
+
+/* ===== WORKSPACES ===== */
+#workspaces {
+  margin-left: 8px;
+}
+
+#workspaces button {
+  padding: 0.35rem 0.7rem;
+  margin: 0.35rem 0.2rem;
+  border-radius: 8px;
+  background-color: rgba(30, 30, 46, 0.7);
+  color: #cdd6f4;
+  border: 2px solid transparent;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#workspaces button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: rgba(205, 214, 244, 0.15);
+  color: #89b4fa;
+}
+
+#workspaces button.active {
+  background-color: rgba(30, 30, 46, 0.9);
+  color: #89b4fa;
+  border-color: #89b4fa;
+  box-shadow: 0 0 12px rgba(137, 180, 250, 0.3);
+}
+
+#workspaces button.urgent {
+  background-color: rgba(243, 139, 168, 0.2);
+  color: #f38ba8;
+  border-color: #f38ba8;
+  animation: urgent-pulse 1.5s infinite;
+}
+
+/* ===== MODULE BASE STYLING ===== */
+#clock,
+#pulseaudio,
+#custom-lock,
+#custom-logout,
+#custom-shutdown,
+#cpu,
+#tray,
+#memory,
+#window,
+#mpris,
+#battery,
+#network,
+#temperature {
+  padding: 0.35rem 0.7rem;
+  margin: 0.35rem 0.25rem;
+  border-radius: 8px;
+  background-color: rgba(30, 30, 46, 0.7);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== HOVER EFFECTS ===== */
+#pulseaudio:hover,
+#custom-lock:hover,
+#custom-logout:hover,
+#custom-shutdown:hover,
+#clock:hover,
+#battery:hover,
+#network:hover,
+#temperature:hover,
+#cpu:hover,
+#memory:hover {
+  background-color: rgba(49, 50, 68, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== MODULE-SPECIFIC COLORS ===== */
+#mpris {
+  color: #a6e3a1;
+}
+
+#mpris.paused {
+  color: #9399b2;
+  font-style: italic;
+}
+
+#cpu {
+  color: #94e2d5;
+}
+
+#memory {
+  color: #cba6f7;
+}
+
+#temperature {
+  color: #fab387;
+}
+
+#temperature.critical {
+  color: #f38ba8;
+  animation: temperature-blink 1s infinite;
+}
+
+#network {
+  color: #89b4fa;
+}
+
+#network.disconnected {
+  color: #a6adc8;
+}
+
+#battery {
+  color: #f9e2af;
+}
+
+#battery.charging {
+  color: #a6e3a1;
+  animation: charging-pulse 2s infinite;
+}
+
+#battery.warning {
+  color: #fab387;
+}
+
+#battery.critical {
+  color: #f38ba8;
+  animation: urgent-pulse 1.5s infinite;
+}
+
+#clock {
+  color: #74c7ec;
+}
+
+#clock.simpleclock {
+  color: #89b4fa;
+}
+
+#window {
+  color: #cdd6f4;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#pulseaudio {
+  color: #b4befe;
+}
+
+#pulseaudio.muted {
+  color: #a6adc8;
+  background-color: rgba(24, 24, 37, 0.7);
+}
+
+/* ===== POWER CONTROL BUTTONS ===== */
+#custom-lock {
+  color: #f9e2af;
+}
+
+#custom-logout {
+  color: #fab387;
+}
+
+#custom-shutdown {
+  color: #f38ba8;
+}
+
+#custom-shutdown:hover {
+  background-color: #f38ba8;
+  color: #11111b;
+}
+
+/* ===== SEPARATOR ===== */
+#custom-separator {
+  color: rgba(205, 214, 244, 0.3);
+  padding: 0 0.3rem;
+  margin: 0;
+}
+
+/* ===== TRAY ===== */
+#tray {
+  background-color: transparent;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+  opacity: 0.6;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: rgba(243, 139, 168, 0.3);
+  animation: tray-attention 2s infinite;
+}
+
+/* ===== TOOLTIP STYLING ===== */
+tooltip {
+  background-color: rgba(24, 24, 37, 0.95);
+  border: 2px solid #89b4fa;
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  color: #cdd6f4;
+  font-family: Lexend, sans-serif;
+  font-size: 14px;
+}
+
+tooltip label {
+  color: #cdd6f4;
+}
+
+/* ===== MODULE ANIMATIONS ===== */
+#workspaces, #clock, #pulseaudio, #cpu, #memory, #battery, #network {
+  animation: fadeIn 0.5s ease-out;
+}

@@ -1,0 +1,114 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 47,
+  "spacing": 3,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["custom/separator", "mpris", "custom/separator"],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "network",
+    "pulseaudio",
+    "clock",
+    "clock#simpleclock",
+    "tray",
+    "custom/separator",
+    "custom/logout",
+    "custom/shutdown"
+  ],
+  
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{name}",
+    "all-outputs": true,
+    "disable-scroll": false,
+    "active-only": false
+  },
+  
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 60,
+    "separate-outputs": true
+  },
+  
+  "mpris": {
+    "format": "{artist} - {title}",
+    "max-length": 50,
+    "tooltip": true,
+    "interval": 3
+  },
+  
+  "cpu": {
+    "format": "CPU: {usage}%",
+    "tooltip": true,
+    "interval": 3
+  },
+  
+  "memory": {
+    "format": "MEM: {used:0.1f}G",
+    "tooltip": true,
+    "tooltip-format": "Memory: {used:0.1f}G / {total:0.1f}G",
+    "interval": 5
+  },
+  
+  "network": {
+    "format-wifi": "NET: {essid}",
+    "format-ethernet": "NET: {ifname}",
+    "format-disconnected": "NET: disconnected",
+    "tooltip": true,
+    "interval": 3
+  },
+  
+  "pulseaudio": {
+    "format": "VOL: {volume}%",
+    "format-muted": "VOL: muted",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip": true
+  },
+  
+  "clock#simpleclock": {
+    "format": "{:%H:%M}",
+    "tooltip": false,
+    "interval": 60
+  },
+  
+  "clock": {
+    "format": "{:%a %d %b}",
+    "tooltip": true,
+    "tooltip-format": "{:%Y-%m-%d %H:%M:%S}",
+    "interval": 60
+  },
+  
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 8,
+    "icon-size": 16
+  },
+  
+  "custom/separator": {
+    "format": " | ",
+    "tooltip": false
+  },
+  
+  "custom/logout": {
+    "on-click": "hyprctl dispatch exit",
+    "format": "🚪",
+    "tooltip": true,
+    "tooltip-format": "Logout"
+  },
+  
+  "custom/shutdown": {
+    "on-click": "systemctl poweroff",
+    "on-click-right": "systemctl reboot",
+    "on-click-middle": "systemctl suspend",
+    "format": "⏻",
+    "tooltip": true,
+    "tooltip-format": "Shutdown\nRight: Reboot\nMiddle: Suspend"
+  }
+}
