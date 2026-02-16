@@ -1,44 +1,20 @@
 # ============================================================================
-# WOFI CONFIGURATION - CINEMATIC THEME
+# WOFI CONFIGURATION - SIMPLE & CLEAN
 # ============================================================================
 
-# Size and position
 width=600
-height=500
+height=450
 location=center
-xoffset=0
-yoffset=0
 
-# Core behavior
 show=drun
 prompt=Search...
 lines=10
-columns=1
 
-# Theme
-gtk_dark=true
-normal_window=true
-
-# Search behavior
 matching=fuzzy
 insensitive=true
-case_sensitive=false
-levenshtein_sort=true
-sort=true
 
-# Visual elements
-allow_markup=true
 allow_images=true
 image_size=32
-hide_scrollbar=false
+hide_scrollbar=true
 
-# Layout
-no_actions=true
-halign=fill
-orientation=vertical
-content_halign=fill
-fullscreen=false
-
-# Performance
 cache_file=/home/mehti/.cache/wofi-cache
-max_lines_cache=500

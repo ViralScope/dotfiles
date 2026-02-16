@@ -1,123 +1,83 @@
 /* ============================================================================
-   WOFI STYLE - CINEMATIC THEME
-   Matches Hyprland/Kitty/Waybar color scheme
+   WOFI STYLE - CATPPUCCIN INSPIRED
    ============================================================================ */
 
+@keyframes selected-glow {
+  0% { box-shadow: 0 0 12px rgba(137, 180, 250, 0.3); }
+  50% { box-shadow: 0 0 18px rgba(137, 180, 250, 0.5); }
+  100% { box-shadow: 0 0 12px rgba(137, 180, 250, 0.3); }
+}
+
 * {
-    font-family: "JetBrains Mono", "JetBrainsMono NFP", monospace;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.15s ease;
+  font-family: Lexend, "JetBrainsMono NFP", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 window {
-    margin: 0px;
-    padding: 0px;
-    border: 2px solid #33ccff;
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(51, 204, 255, 0.3);
-}
-
-#outer-box {
-    margin: 15px;
-    background-color: transparent;
+  background-color: rgba(17, 17, 27, 0.95);
+  border: 2px solid rgba(137, 180, 250, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 #input {
-    margin: 12px 12px 8px 12px;
-    padding: 14px;
-    border: 2px solid #33ccff;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    box-shadow: 0 2px 8px rgba(51, 204, 255, 0.2);
-    outline: none;
+  padding: 12px 14px;
+  margin: 10px;
+  background-color: rgba(30, 30, 46, 0.7);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: #cdd6f4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #input:focus {
-    border-color: #5dd9ff;
-    box-shadow: 0 0 0 3px rgba(51, 204, 255, 0.3);
-}
-
-#scroll {
-    margin: 8px 0px;
-    padding: 0px;
-    background-color: transparent;
-}
-
-#text {
-    color: #cbd5e0;
-    padding: 10px 12px;
-    font-size: 14px;
+  border-color: #89b4fa;
+  box-shadow: 0 0 12px rgba(137, 180, 250, 0.3);
 }
 
 #entry {
-    padding: 12px;
-    margin: 4px 8px;
-    background-color: #1a1a1a;
-    border-radius: 6px;
-    transition: all 0.15s ease;
+  padding: 8px 12px;
+  margin: 3px 8px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px solid transparent;
 }
 
 #entry:hover {
-    background-color: #2a2a2a;
-    transform: translateX(4px);
+  background-color: rgba(205, 214, 244, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Active/Selected state with cinematic blue */
 #entry:selected {
-    background-color: #33ccff;
-    background-image: linear-gradient(90deg, #33ccff 0%, #5dd9ff 100%);
-    outline: none;
-    border-radius: 6px;
-    box-shadow: 0 0 12px rgba(51, 204, 255, 0.5);
-    animation: pulse 2s infinite;
+  background-color: rgba(30, 30, 46, 0.9);
+  border-color: #89b4fa;
+  animation: selected-glow 2s infinite;
 }
 
 #entry:selected #text {
-    color: #0f1419;
-    font-weight: 700;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: #89b4fa;
+}
+
+#text {
+  color: #cdd6f4;
 }
 
 #img {
-    margin-right: 16px;
-    min-width: 32px;
-    min-height: 32px;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-/* Smooth animations */
-@keyframes pulse {
-    0%, 100% { box-shadow: 0 0 12px rgba(51, 204, 255, 0.5); }
-    50% { box-shadow: 0 0 16px rgba(51, 204, 255, 0.7); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+  margin-right: 12px;
 }
 
 #outer-box {
-    animation: fadeIn 0.3s ease-out;
 }
 
-/* Scrollbar styling */
 scrollbar {
-    background-color: #1e1e1e;
-    border-radius: 6px;
+  background-color: rgba(30, 30, 46, 0.5);
+  border-radius: 8px;
 }
 
 scrollbar slider {
-    background-color: #33ccff;
-    border-radius: 6px;
-    min-height: 30px;
-}
-
-scrollbar slider:hover {
-    background-color: #5dd9ff;
+  background-color: #89b4fa;
+  border-radius: 8px;
+  min-height: 30px;
 }
