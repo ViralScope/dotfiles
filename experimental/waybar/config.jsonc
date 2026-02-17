@@ -24,13 +24,13 @@
 
 "custom/cachyos": {
   "format": "⚡",
-  "tooltip": true,
   "tooltip-format": "CachyOS",
-  "on-click": "alacritty -e fastfetch"
+  "on-click": "btop"
 },
 
   "hyprland/workspaces": {
     "on-click": "activate",
+  "tooltip": true,
     "format": "{name}",
     "all-outputs": true,
     "disable-scroll": false,

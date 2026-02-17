@@ -1,0 +1,43 @@
+theme = "tokyo_night"  # or "catppuccin_mocha", "dracula"
+
+[editor]
+line-number = "relative"
+mouse = true                  # Mouse support (click, scroll, select)
+cursorline = true             # Highlight current line
+bufferline = "always"         # Show open tabs at the top
+auto-save = true              # Auto-save focus is lost
+true-color = true
+text-width = 100
+color-modes = true
+scrolloff = 5
+
+[editor.cursor-shape]
+insert = "bar"        # A vertical bar | when typing (Like VS Code)
+normal = "block"      # A block █ when navigating (Standard Vim/Helix)
+select = "underline"  # An underline _ when selecting text
+
+[editor.file-picker]
+hidden = false                # Search hidden files (like .gitignore)
+
+[editor.soft-wrap]
+enable = true                 # Prevent code from going off-screen
+
+# --- KEYBOARD SHORTCUTS ---
+[keys.normal]
+C-s = ":w"                    # Ctrl+s to Save
+"S-h" = ":buffer-previous"    # Shift+Left to switch tabs
+"S-l" = ":buffer-next"        # Shift+Right to switch tabs
+
+[keys.insert]
+j = { k = "normal_mode" }     # Press 'jk' to exit typing mode
+
+[editor.lsp]
+display-messages = true       # Shows LSP status (e.g., "Server initializing...")
+auto-signature-help = true    # Automatically shows function params/types while you type
+display-inlay-hints = true    # (Optional) Shows inferred types inline (like "x: i32
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "read-only-indicator"]
+center = []
+right = ["diagnostics", "register", "position", "file-type"] # "register" shows clipboard content
+

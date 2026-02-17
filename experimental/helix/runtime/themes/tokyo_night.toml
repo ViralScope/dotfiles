@@ -1,0 +1,1053 @@
+# Tokyo Night (2026 Edition) – Ultimate Helix Theme
+# Based on the classic Tokyo Night color palette:
+#   bg         #1a1b26 (dark blue-black)
+#   bg_alt     #24283b (lighter blue-black)
+#   fg         #c0caf5 (soft white)
+#   fg_dark    #565f89 (muted purple-gray)
+#   blue       #7aa2f7 (bright blue)
+#   cyan       #7dcfff (light cyan)
+#   green      #9ece6a (soft green)
+#   orange     #ff9e64 (warm orange)
+#   red        #f7768e (soft red)
+#   purple     #bb9af7 (lavender)
+#   yellow     #e0af68 (warm yellow)
+#
+# This theme is designed to be comprehensive, consistent, and visually pleasing.
+# It covers all UI elements, diagnostics, and syntax highlighting for dozens of languages.
+# Use it by placing this file in ~/.config/helix/themes/tokyo_night.toml
+# and setting `theme = "tokyo_night"` in your config.toml.
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Background & General
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.background"                      = { bg = "#1a1b26" }
+"ui.background.separator"            = { fg = "#3b4261", bg = "#1a1b26" }
+"ui.window"                          = { fg = "#3b4261", bg = "#1a1b26" }
+"ui.window.unfocused"                = { fg = "#24283b", bg = "#1a1b26" }
+"ui.split"                           = { fg = "#565f89", bg = "#1a1b26" }
+"ui.split.unfocused"                 = { fg = "#3b4261", bg = "#1a1b26" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Cursor
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.cursor"                          = { fg = "#c0caf5", modifiers = ["reversed"] }
+"ui.cursor.primary"                  = { fg = "#c0caf5", bg = "#bb9af7", modifiers = ["reversed"] }
+"ui.cursor.primary.normal"           = { fg = "#1a1b26", bg = "#bb9af7", modifiers = ["bold"] }
+"ui.cursor.primary.insert"           = { fg = "#1a1b26", bg = "#9ece6a", modifiers = ["bold"] }
+"ui.cursor.primary.select"           = { fg = "#1a1b26", bg = "#7aa2f7", modifiers = ["bold"] }
+"ui.cursor.insert"                   = { fg = "#1a1b26", bg = "#9ece6a" }
+"ui.cursor.select"                   = { fg = "#1a1b26", bg = "#7aa2f7" }
+"ui.cursor.match"                    = { fg = "#c0caf5", bg = "#24283b", underline = { color = "#ff9e64", style = "line" } }
+"ui.cursor.search"                   = { fg = "#1a1b26", bg = "#e0af68", modifiers = ["bold"] }
+"ui.cursor.search.primary"           = { fg = "#1a1b26", bg = "#ff9e64", modifiers = ["bold"] }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Virtual Elements
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.virtual.ruler"                   = { bg = "#24283b" }
+"ui.virtual.whitespace"              = { fg = "#3b4261" }
+"ui.virtual.indent-guide"            = { fg = "#3b4261" }
+"ui.virtual.wrap"                    = { fg = "#3b4261", bg = "#1a1b26" }
+"ui.virtual.inlay-hint"              = { fg = "#565f89", bg = "#1a1b26", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.parameter"    = { fg = "#7dcfff", bg = "#1a1b26", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.type"         = { fg = "#7aa2f7", bg = "#1a1b26", modifiers = ["italic"] }
+"ui.virtual.jump-label"              = { fg = "#ff9e64", bg = "#1a1b26", modifiers = ["bold", "underlined"] }
+"ui.virtual.jump-label.hint"         = { fg = "#9ece6a", bg = "#1a1b26", modifiers = ["bold"] }
+"ui.virtual.jump-label.info"         = { fg = "#7aa2f7", bg = "#1a1b26", modifiers = ["bold"] }
+"ui.virtual.jump-label.warning"      = { fg = "#e0af68", bg = "#1a1b26", modifiers = ["bold"] }
+"ui.virtual.jump-label.error"        = { fg = "#f7768e", bg = "#1a1b26", modifiers = ["bold"] }
+"ui.virtual.document-highlight"      = { bg = "#292e42" }
+"ui.virtual.document-highlight.read" = { bg = "#24283b" }
+"ui.virtual.document-highlight.write" = { bg = "#3b4261" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Line Numbers & Gutter
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.linenr"                          = { fg = "#3b4261" }
+"ui.linenr.selected"                 = { fg = "#c0caf5", bg = "#24283b", modifiers = ["bold"] }
+"ui.linenr.inactive"                 = { fg = "#24283b" }
+"ui.gutter"                          = { fg = "#3b4261", bg = "#1a1b26" }
+"ui.gutter.selected"                  = { fg = "#c0caf5", bg = "#1a1b26" }
+"ui.gutter.inactive"                  = { fg = "#24283b", bg = "#1a1b26" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Selection
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.selection"                       = { bg = "#24283b" }
+"ui.selection.primary"               = { bg = "#364a82" }
+"ui.selection.inactive"              = { bg = "#1e2230" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Text & Messages
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.text"                            = { fg = "#c0caf5" }
+"ui.text.inactive"                   = { fg = "#565f89" }
+"ui.text.focus"                      = { fg = "#c0caf5", modifiers = ["bold"] }
+"ui.text.info"                       = { fg = "#7aa2f7" }
+"ui.text.success"                    = { fg = "#9ece6a" }
+"ui.text.error"                      = { fg = "#f7768e" }
+"ui.text.warning"                    = { fg = "#e0af68" }
+"ui.text.hint"                       = { fg = "#7dcfff" }
+"ui.text.disabled"                   = { fg = "#3b4261" }
+"ui.text.directory"                  = { fg = "#7aa2f7" }
+"ui.text.file"                       = { fg = "#c0caf5" }
+"ui.text.url"                        = { fg = "#7dcfff", underline = { color = "#7dcfff", style = "line" } }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Menu / Completion
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.menu"                            = { fg = "#c0caf5", bg = "#1a1b26" }
+"ui.menu.selected"                   = { fg = "#c0caf5", bg = "#3b4261", modifiers = ["bold"] }
+"ui.menu.scroll"                     = { fg = "#7aa2f7", bg = "#24283b" }
+"ui.menu.border"                     = { fg = "#565f89", bg = "#1a1b26" }
+"ui.menu.normal"                     = { fg = "#c0caf5", bg = "#1a1b26" }
+"ui.menu.insert"                     = { fg = "#9ece6a", bg = "#1a1b26" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Popup
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.popup"                           = { fg = "#c0caf5", bg = "#24283b" }
+"ui.popup.border"                    = { fg = "#565f89", bg = "#24283b" }
+"ui.popup.info"                      = { fg = "#9ece6a", bg = "#24283b" }
+"ui.popup.info.border"               = { fg = "#9ece6a", bg = "#24283b" }
+"ui.popup.error"                     = { fg = "#f7768e", bg = "#24283b" }
+"ui.popup.error.border"              = { fg = "#f7768e", bg = "#24283b" }
+"ui.popup.warning"                   = { fg = "#e0af68", bg = "#24283b" }
+"ui.popup.warning.border"            = { fg = "#e0af68", bg = "#24283b" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Help
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.help"                            = { fg = "#c0caf5", bg = "#24283b" }
+"ui.help.border"                     = { fg = "#565f89", bg = "#24283b" }
+"ui.help.header"                     = { fg = "#7aa2f7", bg = "#24283b", modifiers = ["bold"] }
+"ui.help.key"                        = { fg = "#9ece6a", bg = "#24283b" }
+"ui.help.value"                      = { fg = "#c0caf5", bg = "#24283b" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Statusline
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.statusline"                      = { fg = "#565f89", bg = "#1a1b26" }
+"ui.statusline.inactive"             = { fg = "#3b4261", bg = "#1a1b26" }
+"ui.statusline.separator"            = { fg = "#565f89", bg = "#1a1b26" }
+"ui.statusline.normal"               = { fg = "#1a1b26", bg = "#7aa2f7", modifiers = ["bold"] }
+"ui.statusline.insert"               = { fg = "#1a1b26", bg = "#9ece6a", modifiers = ["bold"] }
+"ui.statusline.select"               = { fg = "#1a1b26", bg = "#bb9af7", modifiers = ["bold"] }
+"ui.statusline.file"                 = { fg = "#c0caf5", bg = "#1a1b26" }
+"ui.statusline.file.inactive"        = { fg = "#565f89", bg = "#1a1b26" }
+"ui.statusline.branch"               = { fg = "#7dcfff", bg = "#1a1b26" }
+"ui.statusline.branch.inactive"      = { fg = "#3b4261", bg = "#1a1b26" }
+"ui.statusline.line"                 = { fg = "#565f89", bg = "#1a1b26" }
+"ui.statusline.line.inactive"        = { fg = "#3b4261", bg = "#1a1b26" }
+"ui.statusline.position"             = { fg = "#565f89", bg = "#1a1b26" }
+"ui.statusline.diagnostics"          = { fg = "#565f89", bg = "#1a1b26" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Bufferline
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.bufferline"                      = { fg = "#565f89", bg = "#1a1b26" }
+"ui.bufferline.active"               = { fg = "#c0caf5", bg = "#24283b", modifiers = ["bold"] }
+"ui.bufferline.background"           = { bg = "#1a1b26" }
+"ui.bufferline.separator"            = { fg = "#3b4261", bg = "#1a1b26" }
+"ui.bufferline.unselected"           = { fg = "#565f89", bg = "#1a1b26" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# UI – Highlight
+# ────────────────────────────────────────────────────────────────────────────────
+"ui.highlight"                       = { bg = "#24283b" }
+"ui.highlight.frameline"             = { bg = "#3b4261" }
+"ui.highlight.search"                = { fg = "#1a1b26", bg = "#e0af68", modifiers = ["bold"] }
+"ui.highlight.search.global"         = { fg = "#1a1b26", bg = "#ff9e64", modifiers = ["bold"] }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Diagnostics
+# ────────────────────────────────────────────────────────────────────────────────
+"diagnostic.error"                   = { fg = "#f7768e", underline = { color = "#f7768e", style = "curl" } }
+"diagnostic.warning"                 = { fg = "#e0af68", underline = { color = "#e0af68", style = "curl" } }
+"diagnostic.info"                    = { fg = "#7aa2f7", underline = { color = "#7aa2f7", style = "line" } }
+"diagnostic.hint"                    = { fg = "#9ece6a", underline = { color = "#9ece6a", style = "line" } }
+"diagnostic.unnecessary"             = { fg = "#565f89", modifiers = ["dim"] }
+"diagnostic.deprecated"              = { fg = "#565f89", modifiers = ["crossed_out"] }
+"diagnostic.sign.error"              = { fg = "#f7768e", bg = "#1a1b26" }
+"diagnostic.sign.warning"            = { fg = "#e0af68", bg = "#1a1b26" }
+"diagnostic.sign.info"               = { fg = "#7aa2f7", bg = "#1a1b26" }
+"diagnostic.sign.hint"               = { fg = "#9ece6a", bg = "#1a1b26" }
+"diagnostic.sign.other"              = { fg = "#565f89", bg = "#1a1b26" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Git Integration
+# ────────────────────────────────────────────────────────────────────────────────
+"diff.plus"                          = { fg = "#9ece6a", bg = "#1a1b26" }
+"diff.plus.gutter"                   = { fg = "#9ece6a", bg = "#1a1b26" }
+"diff.minus"                         = { fg = "#f7768e", bg = "#1a1b26" }
+"diff.minus.gutter"                  = { fg = "#f7768e", bg = "#1a1b26" }
+"diff.delta"                         = { fg = "#e0af68", bg = "#1a1b26" }
+"diff.delta.gutter"                  = { fg = "#e0af68", bg = "#1a1b26" }
+"diff.delta.moved"                   = { fg = "#bb9af7", bg = "#1a1b26" }
+"git.add"                            = { fg = "#9ece6a" }
+"git.delete"                         = { fg = "#f7768e" }
+"git.change"                         = { fg = "#e0af68" }
+"git.conflict"                       = { fg = "#ff9e64", modifiers = ["bold"] }
+"git.ignored"                        = { fg = "#565f89" }
+"git.untracked"                      = { fg = "#7dcfff" }
+"git.staged"                         = { fg = "#9ece6a" }
+"git.modified"                       = { fg = "#e0af68" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Messages & Logs
+# ────────────────────────────────────────────────────────────────────────────────
+"error"                              = { fg = "#f7768e", modifiers = ["bold"] }
+"warning"                            = { fg = "#e0af68", modifiers = ["bold"] }
+"info"                               = { fg = "#7aa2f7" }
+"hint"                               = { fg = "#9ece6a" }
+"debug"                              = { fg = "#bb9af7" }
+"trace"                              = { fg = "#565f89" }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Comments
+# ────────────────────────────────────────────────────────────────────────────────
+"comment"                            = { fg = "#565f89", modifiers = ["italic"] }
+"comment.line"                       = { fg = "#565f89", modifiers = ["italic"] }
+"comment.block"                      = { fg = "#565f89", modifiers = ["italic"] }
+"comment.block.documentation"        = { fg = "#7aa2f7", modifiers = ["italic"] }
+"comment.error"                      = { fg = "#f7768e", modifiers = ["bold", "italic"] }
+"comment.warning"                    = { fg = "#e0af68", modifiers = ["bold", "italic"] }
+"comment.todo"                       = { fg = "#9ece6a", modifiers = ["bold", "italic"] }
+"comment.note"                       = { fg = "#7dcfff", modifiers = ["bold", "italic"] }
+"comment.hint"                       = { fg = "#bb9af7", modifiers = ["bold", "italic"] }
+"comment.fixme"                      = { fg = "#ff9e64", modifiers = ["bold", "italic"] }
+"comment.hack"                       = { fg = "#f7768e", modifiers = ["bold", "italic"] }
+"comment.xxx"                        = { fg = "#e0af68", modifiers = ["bold", "italic"] }
+"comment.perf"                       = { fg = "#f7768e", modifiers = ["bold", "italic"] }
+"comment.safety"                     = { fg = "#9ece6a", modifiers = ["bold", "italic"] }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Constants
+# ────────────────────────────────────────────────────────────────────────────────
+"constant"                           = "#ff9e64"
+"constant.builtin"                   = "#bb9af7"
+"constant.builtin.boolean"           = "#ff9e64"
+"constant.builtin.none"              = "#bb9af7"
+"constant.macro"                     = "#7aa2f7"
+"constant.character"                 = "#9ece6a"
+"constant.character.escape"          = "#bb9af7"
+"constant.character.special"          = "#e0af68"
+"constant.numeric"                    = "#ff9e64"
+"constant.numeric.integer"            = "#ff9e64"
+"constant.numeric.float"              = "#ff9e64"
+"constant.numeric.hex"                = "#bb9af7"
+"constant.numeric.octal"              = "#bb9af7"
+"constant.numeric.binary"             = "#bb9af7"
+"constant.numeric.decimal"            = "#ff9e64"
+"constant.numeric.scientific"         = "#ff9e64"
+"constant.numeric.complex"            = "#7dcfff"
+"constant.date"                       = "#e0af68"
+"constant.time"                       = "#e0af68"
+"constant.datetime"                   = "#e0af68"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Constructors
+# ────────────────────────────────────────────────────────────────────────────────
+"constructor"                        = "#9ece6a"
+"constructor.private"                = "#9ece6a"
+"constructor.public"                 = "#9ece6a"
+"constructor.static"                 = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Functions
+# ────────────────────────────────────────────────────────────────────────────────
+"function"                           = "#7aa2f7"
+"function.builtin"                   = "#bb9af7"
+"function.macro"                     = "#7dcfff"
+"function.special"                   = "#e0af68"
+"function.deprecated"                = "#565f89"
+"function.method"                    = "#7aa2f7"
+"function.method.private"            = "#7aa2f7"
+"function.method.public"             = "#7aa2f7"
+"function.method.static"             = "#bb9af7"
+"function.constructor"               = "#9ece6a"
+"function.destructor"                = "#f7768e"
+"function.call"                      = "#7aa2f7"
+"function.call.builtin"              = "#bb9af7"
+"function.call.method"               = "#7aa2f7"
+"function.async"                     = { fg = "#7aa2f7", underline = { color = "#9ece6a", style = "line" } }
+"function.await"                     = "#e0af68"
+"function.generic"                   = "#7dcfff"
+"function.trait"                     = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Keywords
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword"                            = "#bb9af7"
+"keyword.function"                   = "#bb9af7"
+"keyword.operator"                   = "#7dcfff"
+"keyword.control"                    = "#bb9af7"
+"keyword.control.conditional"        = "#bb9af7"
+"keyword.control.repeat"             = "#bb9af7"
+"keyword.control.return"             = "#bb9af7"
+"keyword.control.exception"          = "#f7768e"
+"keyword.control.yield"              = "#e0af68"
+"keyword.control.await"              = "#e0af68"
+"keyword.control.async"              = "#bb9af7"
+"keyword.control.import"             = "#bb9af7"
+"keyword.control.export"             = "#bb9af7"
+"keyword.import"                     = "#bb9af7"
+"keyword.export"                     = "#bb9af7"
+"keyword.from"                       = "#bb9af7"
+"keyword.as"                         = "#7dcfff"
+"keyword.storage"                    = "#bb9af7"
+"keyword.storage.type"               = "#7dcfff"
+"keyword.storage.modifier"           = "#7dcfff"
+"keyword.storage.modifier.mutable"   = "#ff9e64"
+"keyword.storage.modifier.immutable" = "#bb9af7"
+"keyword.storage.modifier.static"    = "#7dcfff"
+"keyword.storage.modifier.const"     = "#ff9e64"
+"keyword.storage.modifier.ref"       = "#ff9e64"
+"keyword.storage.modifier.async"     = "#9ece6a"
+"keyword.storage.modifier.pub"       = "#9ece6a"
+"keyword.storage.modifier.priv"      = "#565f89"
+"keyword.directive"                  = "#e0af68"
+"keyword.directive.define"           = "#e0af68"
+"keyword.directive.include"          = "#e0af68"
+"keyword.directive.using"            = "#e0af68"
+"keyword.directive.pragma"           = "#bb9af7"
+"keyword.coroutine"                  = "#9ece6a"
+"keyword.match"                      = "#bb9af7"
+"keyword.case"                       = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Labels
+# ────────────────────────────────────────────────────────────────────────────────
+"label"                              = "#9ece6a"
+"label.breakpoint"                   = { fg = "#f7768e", modifiers = ["bold"] }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Markup
+# ────────────────────────────────────────────────────────────────────────────────
+"markup.heading"                     = "#7aa2f7"
+"markup.heading.marker"              = "#bb9af7"
+"markup.heading.1"                   = "#f7768e"
+"markup.heading.2"                   = "#ff9e64"
+"markup.heading.3"                   = "#e0af68"
+"markup.heading.4"                   = "#9ece6a"
+"markup.heading.5"                   = "#7aa2f7"
+"markup.heading.6"                   = "#bb9af7"
+"markup.list"                        = "#7dcfff"
+"markup.list.checked"                = "#9ece6a"
+"markup.list.unchecked"              = "#565f89"
+"markup.list.numbered"               = "#ff9e64"
+"markup.list.unnumbered"             = "#7dcfff"
+"markup.bold"                        = { modifiers = ["bold"] }
+"markup.italic"                      = { modifiers = ["italic"] }
+"markup.strikethrough"               = { modifiers = ["crossed_out"] }
+"markup.underline"                   = { underline = { style = "line" } }
+"markup.bold_italic"                 = { modifiers = ["bold", "italic"] }
+"markup.link"                        = { fg = "#7aa2f7", underline = { color = "#7aa2f7", style = "line" } }
+"markup.link.url"                    = { fg = "#7dcfff", underline = { color = "#7dcfff", style = "line" } }
+"markup.link.label"                  = "#c0caf5"
+"markup.link.text"                   = "#7aa2f7"
+"markup.link.title"                  = "#c0caf5"
+"markup.quote"                       = "#565f89"
+"markup.raw"                         = "#9ece6a"
+"markup.raw.inline"                  = { fg = "#9ece6a", bg = "#24283b" }
+"markup.raw.block"                   = { fg = "#9ece6a", bg = "#1a1b26" }
+"markup.table"                       = "#7aa2f7"
+"markup.table.header"                = "#bb9af7"
+"markup.table.row"                   = "#c0caf5"
+"markup.table.cell"                  = "#c0caf5"
+"markup.admonition"                  = "#7aa2f7"
+"markup.admonition.error"            = { fg = "#f7768e", bg = "#24283b" }
+"markup.admonition.warning"          = { fg = "#e0af68", bg = "#24283b" }
+"markup.admonition.info"             = { fg = "#7aa2f7", bg = "#24283b" }
+"markup.admonition.success"          = { fg = "#9ece6a", bg = "#24283b" }
+"markup.admonition.note"             = { fg = "#7dcfff", bg = "#24283b" }
+"markup.admonition.tip"              = { fg = "#bb9af7", bg = "#24283b" }
+"markup.definition"                  = "#9ece6a"
+"markup.definition.term"             = "#7aa2f7"
+"markup.footnote"                    = "#7dcfff"
+"markup.footnote.definition"         = "#7dcfff"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Namespaces
+# ────────────────────────────────────────────────────────────────────────────────
+"namespace"                          = "#bb9af7"
+"namespace.class"                    = "#bb9af7"
+"namespace.struct"                   = "#bb9af7"
+"namespace.enum"                     = "#bb9af7"
+"namespace.module"                   = "#bb9af7"
+"namespace.package"                  = "#bb9af7"
+"namespace.crate"                    = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Operators
+# ────────────────────────────────────────────────────────────────────────────────
+"operator"                           = "#7dcfff"
+"operator.bitwise"                   = "#7dcfff"
+"operator.comparison"                = "#7dcfff"
+"operator.arithmetic"                = "#7dcfff"
+"operator.logical"                   = "#bb9af7"
+"operator.relational"                = "#7dcfff"
+"operator.assignment"                = "#7dcfff"
+"operator.range"                     = "#e0af68"
+"operator.spread"                    = "#ff9e64"
+"operator.null_coalescing"           = "#ff9e64"
+"operator.ternary"                   = "#e0af68"
+"operator.type"                      = "#7dcfff"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Special
+# ────────────────────────────────────────────────────────────────────────────────
+"special"                            = "#e0af68"
+"special.character"                  = "#9ece6a"
+"special.string"                     = "#9ece6a"
+"special.number"                     = "#ff9e64"
+"special.builtin"                    = "#bb9af7"
+"special.variable"                   = "#ff9e64"
+"special.keyword"                    = "#ff9e64"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Strings
+# ────────────────────────────────────────────────────────────────────────────────
+"string"                             = "#9ece6a"
+"string.quoted"                      = "#9ece6a"
+"string.quoted.single"               = "#9ece6a"
+"string.quoted.double"               = "#9ece6a"
+"string.quoted.triple"               = "#9ece6a"
+"string.quoted.doc"                  = "#9ece6a"
+"string.unquoted"                    = "#9ece6a"
+"string.template"                    = "#9ece6a"
+"string.template.variable"           = "#c0caf5"
+"string.template.expression"         = "#7aa2f7"
+"string.regexp"                      = "#bb9af7"
+"string.special"                     = "#e0af68"
+"string.special.symbol"              = "#ff9e64"
+"string.special.url"                 = { fg = "#7dcfff", underline = { color = "#7dcfff", style = "line" } }
+"string.special.path"                = "#7dcfff"
+"string.special.path.absolute"       = "#7dcfff"
+"string.special.path.relative"       = "#7dcfff"
+"string.escape"                      = "#bb9af7"
+"string.escape.special"              = "#bb9af7"
+"string.escape.control"              = "#ff9e64"
+"string.escape.hex"                  = "#bb9af7"
+"string.escape.unicode"              = "#bb9af7"
+"string.heredoc"                     = "#9ece6a"
+"string.heredoc.begin"               = "#bb9af7"
+"string.heredoc.end"                 = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Types
+# ────────────────────────────────────────────────────────────────────────────────
+"type"                               = "#7dcfff"
+"type.builtin"                       = "#7aa2f7"
+"type.primitive"                     = "#7dcfff"
+"type.enum"                          = "#7dcfff"
+"type.enum.variant"                  = "#ff9e64"
+"type.struct"                        = "#7dcfff"
+"type.interface"                     = "#7dcfff"
+"type.trait"                         = "#bb9af7"
+"type.class"                         = "#7dcfff"
+"type.union"                         = "#7dcfff"
+"type.record"                        = "#7dcfff"
+"type.function"                      = "#7aa2f7"
+"type.function.return"               = "#7dcfff"
+"type.function.param"                = "#e0af68"
+"type.generic"                       = "#ff9e64"
+"type.parameter"                     = "#ff9e64"
+"type.argument"                      = "#ff9e64"
+"type.constraint"                    = "#bb9af7"
+"type.lifetime"                      = "#ff9e64"
+"type.optional"                      = "#e0af68"
+"type.nullable"                      = "#e0af68"
+"type.pointer"                       = "#7dcfff"
+"type.reference"                     = "#7dcfff"
+"type.array"                         = "#7dcfff"
+"type.slice"                         = "#7dcfff"
+"type.tuple"                         = "#7dcfff"
+"type.map"                           = "#7dcfff"
+"type.set"                           = "#7dcfff"
+"type.channel"                       = "#e0af68"
+"type.definition"                    = "#7dcfff"
+"type.definition.struct"             = "#9ece6a"
+"type.definition.enum"               = "#9ece6a"
+"type.definition.class"               = "#9ece6a"
+"type.definition.interface"           = "#9ece6a"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Variables
+# ────────────────────────────────────────────────────────────────────────────────
+"variable"                           = "#c0caf5"
+"variable.other"                     = "#c0caf5"
+"variable.local"                     = "#c0caf5"
+"variable.global"                    = { fg = "#c0caf5", underline = { style = "line" } }
+"variable.builtin"                   = "#bb9af7"
+"variable.builtin.self"              = "#ff9e64"
+"variable.builtin.this"              = "#ff9e64"
+"variable.builtin.super"             = "#e0af68"
+"variable.builtin.class"             = "#bb9af7"
+"variable.other.member"              = "#7dcfff"
+"variable.other.member.private"      = "#565f89"
+"variable.other.member.public"       = "#7dcfff"
+"variable.other.member.protected"    = "#e0af68"
+"variable.other.member.static"       = "#bb9af7"
+"variable.parameter"                 = "#e0af68"
+"variable.parameter.reference"       = "#ff9e64"
+"variable.parameter.option"          = "#7dcfff"
+"variable.parameter.rest"            = "#ff9e64"
+"variable.function"                  = "#7aa2f7"
+"variable.function.callback"         = "#7aa2f7"
+"variable.static"                    = "#bb9af7"
+"variable.constant"                  = "#ff9e64"
+"variable.mutable"                   = "#c0caf5"
+"variable.immutable"                 = "#bb9af7"
+"variable.readonly"                  = "#565f89"
+"variable.property"                  = "#7dcfff"
+"variable.field"                     = "#7dcfff"
+"variable.argument"                  = "#e0af68"
+"variable.capture"                   = "#9ece6a"
+"variable.declaration"               = { fg = "#c0caf5", modifiers = ["bold"] }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Punctuation
+# ────────────────────────────────────────────────────────────────────────────────
+"punctuation"                        = "#7dcfff"
+"punctuation.delimiter"              = "#7dcfff"
+"punctuation.separator"              = "#565f89"
+"punctuation.terminator"             = "#565f89"
+"punctuation.bracket"                = "#c0caf5"
+"punctuation.bracket.round"          = "#7dcfff"
+"punctuation.bracket.square"         = "#ff9e64"
+"punctuation.bracket.curly"          = "#7aa2f7"
+"punctuation.bracket.angle"          = "#9ece6a"
+"punctuation.special"                = "#bb9af7"
+"punctuation.accessor"               = "#7dcfff"
+"punctuation.accessor.dot"           = "#c0caf5"
+"punctuation.accessor.arrow"         = "#ff9e64"
+"punctuation.accessor.double_colon"  = "#7dcfff"
+"punctuation.accessor.scope"         = "#7dcfff"
+"punctuation.definition"             = "#e0af68"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Tags (HTML/XML)
+# ────────────────────────────────────────────────────────────────────────────────
+"tag"                                = "#f7768e"
+"tag.builtin"                        = "#f7768e"
+"tag.custom"                         = "#ff9e64"
+"tag.attribute"                      = "#7dcfff"
+"tag.delimiter"                      = "#565f89"
+"tag.id"                             = "#ff9e64"
+"tag.class"                          = "#e0af68"
+"tag.xml"                            = "#7aa2f7"
+"tag.attribute.xml"                  = "#7dcfff"
+"tag.namespace.xml"                  = "#bb9af7"
+"tag.jsx"                            = "#f7768e"
+"tag.tsx"                            = "#f7768e"
+"tag.attribute.jsx"                  = "#7dcfff"
+"tag.attribute.tsx"                  = "#7dcfff"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Attributes / Decorators
+# ────────────────────────────────────────────────────────────────────────────────
+"attribute"                          = "#e0af68"
+"attribute.builtin"                  = "#e0af68"
+"attribute.decorator"                = "#e0af68"
+"attribute.annotation"               = "#e0af68"
+"attribute.doc"                      = "#7aa2f7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Paths
+# ────────────────────────────────────────────────────────────────────────────────
+"path"                               = "#7dcfff"
+"path.basename"                      = "#7dcfff"
+"path.dirname"                       = "#565f89"
+"path.ext"                           = "#9ece6a"
+"path.separator"                     = "#565f89"
+"path.home"                          = "#9ece6a"
+"path.glob"                          = "#ff9e64"
+"path.glob.wildcard"                 = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Syntax – Regular Expressions
+# ────────────────────────────────────────────────────────────────────────────────
+"regex"                              = "#bb9af7"
+"regex.anchor"                       = "#ff9e64"
+"regex.character_class"              = "#9ece6a"
+"regex.quantifier"                   = "#e0af68"
+"regex.group"                        = "#7aa2f7"
+"regex.alternation"                  = "#e0af68"
+"regex.lookahead"                    = "#f7768e"
+"regex.lookbehind"                   = "#f7768e"
+"regex.flag"                         = "#7dcfff"
+"regex.escape"                       = "#bb9af7"
+"regex.repeat"                       = "#e0af68"
+"regex.set"                          = "#9ece6a"
+"regex.range"                        = "#ff9e64"
+
+# ================================================================================
+# LANGUAGE-SPECIFIC SCOPES (expanded for 2026)
+# ================================================================================
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Rust
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.storage.modifier.lifetime"  = "#ff9e64"
+"keyword.storage.modifier.unsafe"    = "#f7768e"
+"type.lifetime.rust"                 = "#ff9e64"
+"macro.rust"                         = "#7dcfff"
+"attribute.rust"                     = "#e0af68"
+"function.macro.rust"                = "#7dcfff"
+"keyword.async.rust"                 = "#9ece6a"
+"keyword.await.rust"                 = "#e0af68"
+"variable.self.rust"                 = "#ff9e64"
+"constant.crate.rust"                = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Python
+# ────────────────────────────────────────────────────────────────────────────────
+"decorator.python"                   = "#e0af68"
+"decorator.python.builtin"           = "#bb9af7"
+"self.python"                        = "#ff9e64"
+"cls.python"                         = "#ff9e64"
+"keyword.import.python"               = "#bb9af7"
+"keyword.from.python"                 = "#bb9af7"
+"keyword.as.python"                   = "#7dcfff"
+"function.decorator.python"           = "#e0af68"
+"string.docstring.python"             = "#9ece6a"
+"magic.function.python"               = "#bb9af7"
+"magic.variable.python"               = "#bb9af7"
+"exception.python"                    = "#f7768e"
+"builtins.python"                     = "#bb9af7"
+"type.hint.python"                    = "#7dcfff"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# JavaScript / TypeScript
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.js"                         = "#bb9af7"
+"keyword.ts"                         = "#bb9af7"
+"keyword.const.js"                   = "#bb9af7"
+"keyword.let.js"                     = "#bb9af7"
+"keyword.var.js"                     = "#bb9af7"
+"keyword.function.js"                 = "#bb9af7"
+"keyword.async.js"                   = "#9ece6a"
+"keyword.await.js"                   = "#e0af68"
+"function.js"                        = "#7aa2f7"
+"function.arrow.js"                  = "#7aa2f7"
+"function.ts"                        = "#7aa2f7"
+"type.ts"                            = "#7dcfff"
+"type.interface.ts"                  = "#7dcfff"
+"type.alias.ts"                      = "#7dcfff"
+"variable.js"                        = "#c0caf5"
+"variable.ts"                        = "#c0caf5"
+"this.js"                            = "#ff9e64"
+"super.js"                           = "#e0af68"
+"decorator.ts"                       = "#e0af68"
+"string.template.js"                 = "#9ece6a"
+"string.template.ts"                 = "#9ece6a"
+"regex.js"                           = "#bb9af7"
+"null.js"                            = "#bb9af7"
+"undefined.js"                       = "#bb9af7"
+"nan.js"                             = "#ff9e64"
+"infinity.js"                        = "#ff9e64"
+"console.js"                         = "#7aa2f7"
+"promise.js"                         = "#7dcfff"
+"async.function.js"                   = { fg = "#7aa2f7", underline = { color = "#9ece6a", style = "line" } }
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Go
+# ────────────────────────────────────────────────────────────────────────────────
+"package.go"                         = "#bb9af7"
+"module.go"                          = "#bb9af7"
+"import.go"                          = "#bb9af7"
+"receiver.go"                        = "#e0af68"
+"function.go"                        = "#7aa2f7"
+"method.go"                          = "#7aa2f7"
+"struct.go"                          = "#7dcfff"
+"interface.go"                       = "#7dcfff"
+"type.go"                            = "#7dcfff"
+"goroutine.go"                       = "#9ece6a"
+"channel.go"                         = "#e0af68"
+"defer.go"                           = "#bb9af7"
+"go.builtin"                         = "#bb9af7"
+"variable.self.go"                   = "#c0caf5"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Java
+# ────────────────────────────────────────────────────────────────────────────────
+"class.java"                         = "#7dcfff"
+"interface.java"                     = "#7dcfff"
+"enum.java"                          = "#7dcfff"
+"annotation.java"                    = "#e0af68"
+"package.java"                       = "#bb9af7"
+"import.java"                        = "#bb9af7"
+"this.java"                          = "#ff9e64"
+"super.java"                         = "#e0af68"
+"void.java"                          = "#7dcfff"
+"throws.java"                        = "#f7768e"
+"generic.java"                       = "#ff9e64"
+"lambda.java"                        = "#9ece6a"
+"method.java"                        = "#7aa2f7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# C / C++
+# ────────────────────────────────────────────────────────────────────────────────
+"preprocessor.c"                     = "#e0af68"
+"include.c"                          = "#e0af68"
+"define.c"                           = "#e0af68"
+"pragma.c"                           = "#bb9af7"
+"header.c"                           = "#7dcfff"
+"namespace.cpp"                      = "#bb9af7"
+"class.cpp"                          = "#7dcfff"
+"template.cpp"                       = "#ff9e64"
+"typename.cpp"                       = "#ff9e64"
+"this.cpp"                           = "#ff9e64"
+"nullptr.cpp"                        = "#bb9af7"
+"auto.cpp"                           = "#7dcfff"
+"constexpr.cpp"                      = "#ff9e64"
+"noexcept.cpp"                       = "#bb9af7"
+"override.cpp"                       = "#7dcfff"
+"final.cpp"                          = "#7dcfff"
+"virtual.cpp"                        = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Shell (Bash/Zsh/Fish)
+# ────────────────────────────────────────────────────────────────────────────────
+"variable.parameter.shell"           = "#e0af68"
+"variable.shell"                     = "#c0caf5"
+"variable.special.shell"             = "#bb9af7"
+"function.shell"                     = "#7aa2f7"
+"keyword.shell"                      = "#bb9af7"
+"builtin.shell"                      = "#bb9af7"
+"command.shell"                      = "#7aa2f7"
+"option.shell"                       = "#7dcfff"
+"heredoc.shell"                      = "#9ece6a"
+"expansion.shell"                    = "#ff9e64"
+"substitution.shell"                 = "#ff9e64"
+"operator.pipe.shell"                = "#7dcfff"
+"operator.redirect.shell"            = "#e0af68"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# CSS / SCSS / SASS / LESS
+# ────────────────────────────────────────────────────────────────────────────────
+"property.css"                       = "#7aa2f7"
+"property.scss"                      = "#7aa2f7"
+"property.less"                      = "#7aa2f7"
+"selector.css"                       = "#ff9e64"
+"selector.scss"                      = "#ff9e64"
+"selector.class.css"                 = "#e0af68"
+"selector.id.css"                    = "#ff9e64"
+"selector.pseudo.css"                = "#e0af68"
+"selector.pseudo.class.css"          = "#e0af68"
+"selector.pseudo.element.css"        = "#bb9af7"
+"unit.css"                           = "#9ece6a"
+"color.css"                          = "#bb9af7"
+"color.hex.css"                      = "#bb9af7"
+"color.rgb.css"                      = "#bb9af7"
+"color.hsl.css"                      = "#bb9af7"
+"color.named.css"                    = "#ff9e64"
+"at-rule.css"                        = "#bb9af7"
+"at-rule.media.css"                  = "#bb9af7"
+"at-rule.keyframes.css"              = "#bb9af7"
+"at-rule.import.css"                 = "#e0af68"
+"function.css"                       = "#7aa2f7"
+"variable.scss"                      = "#ff9e64"
+"interpolation.scss"                 = "#ff9e64"
+"mixin.scss"                         = "#7dcfff"
+"include.scss"                       = "#e0af68"
+"placeholder.scss"                   = "#bb9af7"
+"keyframe.css"                       = "#e0af68"
+"important.css"                      = "#f7768e"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# HTML
+# ────────────────────────────────────────────────────────────────────────────────
+"tag.html"                           = "#f7768e"
+"attribute.html"                     = "#7dcfff"
+"tag.script.html"                    = "#e0af68"
+"tag.style.html"                     = "#e0af68"
+"tag.custom.html"                    = "#ff9e64"
+"entity.html"                        = "#bb9af7"
+"doctype.html"                       = "#565f89"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# JSON / JSONC / JSON5
+# ────────────────────────────────────────────────────────────────────────────────
+"property.json"                      = "#7aa2f7"
+"key.json"                           = "#7aa2f7"
+"string.json"                        = "#9ece6a"
+"number.json"                        = "#ff9e64"
+"boolean.json"                       = "#ff9e64"
+"null.json"                          = "#bb9af7"
+"comment.json"                       = "#565f89"
+"brace.json"                         = "#7aa2f7"
+"bracket.json"                       = "#ff9e64"
+"comma.json"                         = "#565f89"
+"colon.json"                         = "#7dcfff"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# TOML / YAML
+# ────────────────────────────────────────────────────────────────────────────────
+"key.toml"                           = "#7aa2f7"
+"string.toml"                        = "#9ece6a"
+"number.toml"                        = "#ff9e64"
+"boolean.toml"                       = "#ff9e64"
+"datetime.toml"                      = "#e0af68"
+"table.toml"                         = "#bb9af7"
+"array.toml"                         = "#7dcfff"
+
+"key.yaml"                           = "#7aa2f7"
+"string.yaml"                        = "#9ece6a"
+"number.yaml"                        = "#ff9e64"
+"boolean.yaml"                       = "#ff9e64"
+"null.yaml"                          = "#bb9af7"
+"anchor.yaml"                        = "#ff9e64"
+"alias.yaml"                         = "#ff9e64"
+"indicator.yaml"                     = "#565f89"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Markdown
+# ────────────────────────────────────────────────────────────────────────────────
+"text"                               = "#c0caf5"
+"text.reference"                     = "#7aa2f7"
+"text.literal"                       = "#9ece6a"
+"text.title"                         = "#7aa2f7"
+"text.uri"                           = "#7dcfff"
+"text.emphasis"                      = { modifiers = ["italic"] }
+"text.strong"                        = { modifiers = ["bold"] }
+"text.strike"                        = { modifiers = ["crossed_out"] }
+"text.underline"                     = { underline = { style = "line" } }
+"punctuation.definition.markdown"    = "#565f89"
+"fenced_code.block.markdown"         = { fg = "#9ece6a", bg = "#24283b" }
+"language.markdown"                  = "#7dcfff"
+"frontmatter.markdown"               = "#565f89"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# SQL
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.sql"                        = "#bb9af7"
+"keyword.select.sql"                 = "#bb9af7"
+"keyword.from.sql"                   = "#bb9af7"
+"keyword.where.sql"                  = "#bb9af7"
+"keyword.join.sql"                   = "#bb9af7"
+"keyword.group.sql"                  = "#bb9af7"
+"keyword.order.sql"                  = "#bb9af7"
+"function.sql"                       = "#7aa2f7"
+"function.aggregate.sql"             = "#7dcfff"
+"type.sql"                           = "#7dcfff"
+"string.sql"                         = "#9ece6a"
+"comment.sql"                        = "#565f89"
+"operator.sql"                       = "#7dcfff"
+"table.sql"                          = "#ff9e64"
+"column.sql"                         = "#c0caf5"
+"alias.sql"                          = "#e0af68"
+"null.sql"                           = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Lua
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.lua"                        = "#bb9af7"
+"keyword.local.lua"                  = "#bb9af7"
+"keyword.function.lua"               = "#bb9af7"
+"function.lua"                       = "#7aa2f7"
+"variable.lua"                       = "#c0caf5"
+"self.lua"                           = "#ff9e64"
+"nil.lua"                            = "#bb9af7"
+"builtin.lua"                        = "#bb9af7"
+"method.lua"                         = "#7aa2f7"
+"field.lua"                          = "#7dcfff"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Dockerfile
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.dockerfile"                 = "#bb9af7"
+"instruction.dockerfile"             = "#7aa2f7"
+"from.dockerfile"                    = "#bb9af7"
+"run.dockerfile"                     = "#7aa2f7"
+"cmd.dockerfile"                     = "#7aa2f7"
+"copy.dockerfile"                    = "#e0af68"
+"add.dockerfile"                     = "#e0af68"
+"expose.dockerfile"                  = "#9ece6a"
+"env.dockerfile"                     = "#7dcfff"
+"label.dockerfile"                   = "#7dcfff"
+"arg.dockerfile"                     = "#ff9e64"
+"volume.dockerfile"                   = "#9ece6a"
+"workdir.dockerfile"                  = "#7dcfff"
+"entrypoint.dockerfile"               = "#f7768e"
+"image.dockerfile"                    = "#ff9e64"
+"port.dockerfile"                     = "#9ece6a"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Makefile
+# ────────────────────────────────────────────────────────────────────────────────
+"target.makefile"                    = "#9ece6a"
+"prerequisite.makefile"              = "#c0caf5"
+"variable.makefile"                  = "#ff9e64"
+"automatic.makefile"                 = "#bb9af7"
+"keyword.makefile"                   = "#bb9af7"
+"function.makefile"                  = "#7aa2f7"
+"comment.makefile"                   = "#565f89"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Git
+# ────────────────────────────────────────────────────────────────────────────────
+"commit.ref.git"                     = "#bb9af7"
+"commit.hash.git"                    = "#bb9af7"
+"commit.subject.git"                 = "#c0caf5"
+"commit.author.git"                  = "#7aa2f7"
+"commit.date.git"                    = "#565f89"
+"branch.git"                         = "#9ece6a"
+"remote.git"                         = "#7dcfff"
+"tag.git"                            = "#e0af68"
+"keyword.git"                        = "#bb9af7"
+"header.git"                         = "#7aa2f7"
+"diff.header.git"                    = "#565f89"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# VimL / Neovim Lua
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.viml"                       = "#bb9af7"
+"command.viml"                       = "#7aa2f7"
+"option.viml"                        = "#7dcfff"
+"variable.viml"                      = "#ff9e64"
+"function.viml"                      = "#7aa2f7"
+"builtin.viml"                       = "#bb9af7"
+"autocmd.viml"                       = "#e0af68"
+"augroup.viml"                       = "#e0af68"
+"map.viml"                           = "#9ece6a"
+"vim.opt.nvim"                       = "#7dcfff"
+"vim.api.nvim"                       = "#7aa2f7"
+"vim.keymap.nvim"                    = "#9ece6a"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Zig
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.zig"                        = "#bb9af7"
+"function.zig"                       = "#7aa2f7"
+"type.zig"                           = "#7dcfff"
+"builtin.zig"                        = "#bb9af7"
+"constant.zig"                       = "#ff9e64"
+"variable.zig"                       = "#c0caf5"
+"keyword.try.zig"                    = "#f7768e"
+"keyword.catch.zig"                  = "#e0af68"
+"keyword.async.zig"                  = "#9ece6a"
+"keyword.await.zig"                  = "#e0af68"
+"keyword.defer.zig"                  = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Haskell
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.haskell"                    = "#bb9af7"
+"type.haskell"                       = "#7dcfff"
+"function.haskell"                   = "#7aa2f7"
+"module.haskell"                     = "#bb9af7"
+"import.haskell"                     = "#bb9af7"
+"operator.haskell"                   = "#7dcfff"
+"constructor.haskell"                = "#9ece6a"
+"typeclass.haskell"                  = "#e0af68"
+"where.haskell"                      = "#bb9af7"
+"let.haskell"                        = "#bb9af7"
+"in.haskell"                         = "#bb9af7"
+"do.notation.haskell"                = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Elixir
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.elixir"                     = "#bb9af7"
+"function.elixir"                    = "#7aa2f7"
+"macro.elixir"                       = "#7dcfff"
+"module.elixir"                      = "#bb9af7"
+"atom.elixir"                        = "#ff9e64"
+"variable.elixir"                    = "#c0caf5"
+"type.elixir"                        = "#7dcfff"
+"sigil.elixir"                       = "#bb9af7"
+"string.elixir"                      = "#9ece6a"
+"do.elixir"                          = "#bb9af7"
+"end.elixir"                         = "#bb9af7"
+"def.elixir"                         = "#7aa2f7"
+"defp.elixir"                        = "#7aa2f7"
+"defmacro.elixir"                    = "#7dcfff"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Kotlin
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.kotlin"                     = "#bb9af7"
+"class.kotlin"                       = "#7dcfff"
+"function.kotlin"                    = "#7aa2f7"
+"variable.kotlin"                    = "#c0caf5"
+"type.kotlin"                        = "#7dcfff"
+"annotation.kotlin"                  = "#e0af68"
+"companion.kotlin"                   = "#bb9af7"
+"object.kotlin"                      = "#9ece6a"
+"data.kotlin"                        = "#9ece6a"
+"sealed.kotlin"                      = "#7dcfff"
+"suspend.kotlin"                     = "#9ece6a"
+"inline.kotlin"                      = "#e0af68"
+"reified.kotlin"                     = "#ff9e64"
+"when.kotlin"                        = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Swift
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.swift"                      = "#bb9af7"
+"class.swift"                        = "#7dcfff"
+"struct.swift"                       = "#7dcfff"
+"protocol.swift"                     = "#7dcfff"
+"enum.swift"                         = "#7dcfff"
+"function.swift"                     = "#7aa2f7"
+"variable.swift"                     = "#c0caf5"
+"type.swift"                         = "#7dcfff"
+"self.swift"                         = "#ff9e64"
+"guard.swift"                        = "#bb9af7"
+"defer.swift"                        = "#bb9af7"
+"async.swift"                        = "#9ece6a"
+"await.swift"                        = "#e0af68"
+"throws.swift"                       = "#f7768e"
+"property.swift"                     = "#7dcfff"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Nix
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.nix"                        = "#bb9af7"
+"function.nix"                       = "#7aa2f7"
+"variable.nix"                       = "#c0caf5"
+"type.nix"                           = "#7dcfff"
+"string.nix"                         = "#9ece6a"
+"path.nix"                           = "#7dcfff"
+"uri.nix"                            = "#7dcfff"
+"let.nix"                            = "#bb9af7"
+"in.nix"                             = "#bb9af7"
+"with.nix"                           = "#bb9af7"
+"inherit.nix"                        = "#bb9af7"
+"rec.nix"                            = "#e0af68"
+"builtin.nix"                        = "#bb9af7"
+"attrset.nix"                        = "#ff9e64"
+"list.nix"                           = "#7dcfff"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Protocol Buffers
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.proto"                      = "#bb9af7"
+"message.proto"                      = "#7dcfff"
+"enum.proto"                         = "#7dcfff"
+"service.proto"                      = "#9ece6a"
+"rpc.proto"                          = "#7aa2f7"
+"field.proto"                        = "#c0caf5"
+"type.proto"                         = "#7dcfff"
+"number.proto"                       = "#ff9e64"
+"option.proto"                       = "#7dcfff"
+"package.proto"                      = "#bb9af7"
+"import.proto"                       = "#bb9af7"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Terraform
+# ────────────────────────────────────────────────────────────────────────────────
+"keyword.terraform"                  = "#bb9af7"
+"resource.terraform"                 = "#9ece6a"
+"data.terraform"                     = "#7dcfff"
+"module.terraform"                   = "#7aa2f7"
+"variable.terraform"                 = "#ff9e64"
+"output.terraform"                   = "#e0af68"
+"provider.terraform"                 = "#7aa2f7"
+"locals.terraform"                   = "#c0caf5"
+"string.terraform"                   = "#9ece6a"
+"type.terraform"                     = "#7dcfff"
+"attribute.terraform"                = "#7dcfff"
+"block.terraform"                    = "#bb9af7"

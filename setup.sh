@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+echo "== Updating mirror list =="
+sudo cachyos-rate-mirrors
+
 echo "== Installing packages =="
 sudo pacman -S --needed --noconfirm \
     hyprland \
@@ -25,7 +28,8 @@ sudo pacman -S --needed --noconfirm \
     steam \
     grim \
     slurp \
-    wl-clipboard
+    wl-clipboard \
+    helix
 
 echo "== Cloning dotfiles =="
 
@@ -43,23 +47,9 @@ cp -f "$REPO_DIR/hello.jpg" "$HOME/Pictures/" 2>/dev/null || true
 
 mkdir -p "$HOME/.config"
 
-# Ask user which version to install
-echo ""
-echo "Choose dotfiles version:"
-echo "1) Stable (default)"
-echo "2) Experimental"
-read -p "Enter choice [1/2] (default: 1): " choice
-choice=${choice:-1}
-
-if [ "$choice" = "2" ]; then
-    echo "Installing experimental dotfiles..."
-    CONFIG_SOURCE="$REPO_DIR/experimental"
-    DIRS="btop dunst fish hypr kitty waybar wofi"
-else
-    echo "Installing stable dotfiles..."
-    CONFIG_SOURCE="$REPO_DIR/.config"
-    DIRS="dunst hypr kitty wofi waybar"
-fi
+echo "Installing experimental dotfiles..."
+CONFIG_SOURCE="$REPO_DIR/experimental"
+DIRS="btop dunst fish helix hypr kitty waybar wofi"
 
 if [ -d "$CONFIG_SOURCE" ]; then
     for dir in $DIRS; do
@@ -73,7 +63,6 @@ if [ -d "$CONFIG_SOURCE" ]; then
 else
     echo "Config directory not found in repository."
 fi
-
 
 echo "== Enabling BBR + CAKE sysctl config =="
 sudo tee /etc/sysctl.d/99-cachy-networking.conf > /dev/null <<EOF
@@ -117,20 +106,17 @@ EOF
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 
-# Set permissions and run scripts for experimental version
-if [ "$choice" = "2" ]; then
-    echo "== Setting executable permissions for experimental scripts =="
-    chmod +x "$HOME/.config/fish/welcome.sh" 2>/dev/null || echo "Warning: fish/welcome.sh not found"
-    chmod +x "$HOME/.config/hypr/scripts/kde-dark-mode.sh" 2>/dev/null || echo "Warning: kde-dark-mode.sh not found"
-    chmod +x "$HOME/.config/hypr/scripts/kitty-dropdown.sh" 2>/dev/null || echo "Warning: kitty-dropdown.sh not found"
+echo "== Setting executable permissions for scripts =="
+chmod +x "$HOME/.config/fish/welcome.sh" 2>/dev/null || echo "Warning: fish/welcome.sh not found"
+chmod +x "$HOME/.config/hypr/scripts/kde-dark-mode.sh" 2>/dev/null || echo "Warning: kde-dark-mode.sh not found"
+chmod +x "$HOME/.config/hypr/scripts/kitty-dropdown.sh" 2>/dev/null || echo "Warning: kitty-dropdown.sh not found"
 
-    echo "== Running KDE dark mode script =="
-    if [ -f "$HOME/.config/hypr/scripts/kde-dark-mode.sh" ]; then
-        "$HOME/.config/hypr/scripts/kde-dark-mode.sh"
-        echo "KDE dark mode applied"
-    else
-        echo "Warning: kde-dark-mode.sh not found, skipping"
-    fi
+echo "== Running KDE dark mode script =="
+if [ -f "$HOME/.config/hypr/scripts/kde-dark-mode.sh" ]; then
+    "$HOME/.config/hypr/scripts/kde-dark-mode.sh"
+    echo "KDE dark mode applied"
+else
+    echo "Warning: kde-dark-mode.sh not found, skipping"
 fi
 
 echo "== Setup Complete =="

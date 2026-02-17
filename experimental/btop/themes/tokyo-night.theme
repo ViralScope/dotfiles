@@ -1,0 +1,102 @@
+# ==============================================
+# Tokyo Night Theme for btop
+# Based on the official Tokyo Night color palette
+# https://github.com/tokyo-night/tokyo-night-vscode-theme
+# ==============================================
+
+# ============ Core Colors ============
+# Base background and foreground
+theme[main_bg]="#1a1b26"           # Primary background
+theme[main_fg]="#c0caf5"           # Primary text
+
+# Alternative backgrounds for depth
+theme[title]="#7aa2f7"             # Section headers
+theme[hi_fg]="#bb9af7"             # Highlighted/selected text
+theme[selected_bg]="#2a2c3e"       # Selection background
+theme[selected_fg]="#c0caf5"       # Selection text
+
+# ============ Status Colors ============
+# Semantic status indicators
+theme[inactive_fg]="#565f89"       # Inactive/disabled text
+theme[proc_misc]="#a9b1d6"         # Secondary information
+
+# Performance status
+theme[good]="#9ece6a"              # Optimal/healthy values
+theme[normal]="#7aa2f7"            # Normal operation
+theme[low]="#7dcfff"               # Low usage/cyan accent
+theme[medium]="#e0af68"            # Warning threshold
+theme[high]="#ff9e64"              # Elevated (orange)
+theme[crit]="#f7768e"              # Critical/danger
+
+# ============ Graph Backgrounds ============
+theme[cpu_box]="#24283b"           # CPU box background
+theme[mem_box]="#24283b"           # Memory box background
+theme[net_box]="#24283b"           # Network box background
+theme[proc_box]="#24283b"          # Process list background
+theme[div_line]="#565f89"          # Divider lines
+
+# ============ CPU ============
+# CPU usage gradients
+theme[cpu_start]="#9ece6a"         # Low CPU (green)
+theme[cpu_mid]="#e0af68"           # Mid CPU (yellow)
+theme[cpu_end]="#f7768e"           # High CPU (red)
+
+# CPU graph lines
+theme[graph_text]="#7aa2f7"        # Graph labels
+
+# ============ Memory ============
+# Memory allocation colors
+theme[mem_free]="#9ece6a"          # Free memory (green)
+theme[mem_available]="#7dcfff"     # Available memory (cyan)
+theme[mem_cached]="#7aa2f7"        # Cached memory (blue)
+theme[mem_used]="#bb9af7"          # Used memory (purple)
+
+# Memory usage gradient
+theme[mem_start]="#9ece6a"         # Low usage
+theme[mem_mid]="#e0af68"           # Mid usage  
+theme[mem_end]="#f7768e"           # High usage
+
+# ============ Network ============
+# Network traffic indicators
+theme[download_start]="#7aa2f7"    # Download primary
+theme[download_end]="#7dcfff"      # Download gradient
+theme[upload_start]="#bb9af7"      # Upload primary
+theme[upload_end]="#c678dd"        # Upload gradient
+
+# ============ Disk I/O ============
+theme[io_read]="#7dcfff"           # Read operations (cyan)
+theme[io_write]="#ff9e64"          # Write operations (orange)
+theme[io_graph]="#7aa2f7"          # I/O graph color
+
+# Disk usage
+theme[used]="#bb9af7"              # Disk space used
+theme[free]="#9ece6a"              # Disk space free
+theme[cached]="#7aa2f7"            # Cached/buffer
+theme[available]="#7dcfff"         # Available space
+
+# ============ Processes ============
+# Process list styling
+theme[proc_start]="#7dcfff"        # Process tree characters
+theme[proc_misc]="#a9b1d6"         # Process details
+theme[process]="#c0caf5"           # Process names
+theme[selected]="#1a1b26"          # Selected process text
+theme[selected_bg]="#bb9af7"       # Selected process background
+
+# ============ Temperature ============
+# Temperature gradient (cool to hot)
+theme[temp_start]="#7dcfff"        # Cool (cyan)
+theme[temp_mid]="#e0af68"          # Warm (yellow)
+theme[temp_end]="#f7768e"          # Hot (red)
+
+# ============ Battery ============
+# Battery charge levels
+theme[bat_start]="#f7768e"         # Low battery (red)
+theme[bat_mid]="#e0af68"           # Medium battery (yellow)
+theme[bat_end]="#9ece6a"           # Full battery (green)
+
+# ============ GPU (if supported) ============
+theme[gpu_core]="#7aa2f7"          # GPU core activity
+theme[gpu_mem]="#bb9af7"           # GPU memory usage
+theme[gpu_temp_start]="#7dcfff"    # GPU temp low
+theme[gpu_temp_mid]="#e0af68"      # GPU temp mid
+theme[gpu_temp_end]="#f7768e"      # GPU temp high
