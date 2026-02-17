@@ -1,6 +1,6 @@
 # Hyprland Dotfiles
 
-A minimal, high-performance Hyprland configuration for daily productivity. Features Tokyo Night Dark theme, minimal animations for snappy responsiveness, and pre-configured window rules for popular applications.
+A minimal, clean Hyprland configuration for daily productivity. Features Tokyo Night Dark theme, minimal animations for snappy responsiveness, and pre-configured window rules for popular applications.
 
 ![Hyprland Desktop Showcase](showcase.png)
 
