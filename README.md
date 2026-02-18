@@ -78,8 +78,8 @@ Common layouts: `us` `gb` `de` `fr` `es`
 | Key | Action |
 |-----|--------|
 | `SUPER + Enter` | Open terminal (Kitty) |
-| `SUPER + E` | Open Zen Browser |
-| `SUPER + F` | Open file manager (Dolphin) |
+| `SUPER + B` | Open Zen Browser |
+| `SUPER + E` | Open file manager (Dolphin) |
 | `SUPER + Q` | Close window |
 | `SUPER + V` | Toggle fullscreen |
 | `SUPER + D` | Toggle Wofi app launcher |
