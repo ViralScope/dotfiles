@@ -1,294 +1,349 @@
+/*
+ * TOKYO NIGHT PREMIUM — VERTICAL BAR
+ * GTK CSS compatible. Optimized for a left-side 38px bar on Hyprland/CachyOS.
+ */
+
+/* ===== COLOR PALETTE — TOKYO NIGHT STORM ===== */
+@define-color bg rgba(26, 27, 38, 0.88);
+@define-color bg_dark rgba(16, 16, 24, 0.97);
+@define-color bg_alt rgba(36, 40, 59, 0.55);
+@define-color bg_hover rgba(255, 255, 255, 0.04);
+@define-color border rgba(122, 162, 247, 0.15);
+@define-color fg #c0caf5;
+@define-color fg_dim rgba(192, 202, 245, 0.7);
+@define-color blue #7aa2f7;
+@define-color purple #bb9af7;
+@define-color cyan #7dcfff;
+@define-color green #9ece6a;
+@define-color red #f7768e;
+@define-color yellow #e0af68;
+@define-color orange #ff9e64;
 
 /* ===== ANIMATIONS ===== */
-@keyframes urgent-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(243, 139, 168, 0.5); }
-  50%  { box-shadow: 0 0 0 10px rgba(243, 139, 168, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(243, 139, 168, 0.5); }
-}
-
-@keyframes charging-pulse {
-  0%   { background-color: rgba(166, 227, 161, 0.7); }
-  50%  { background-color: rgba(166, 227, 161, 1); }
-  100% { background-color: rgba(166, 227, 161, 0.7); }
-}
-
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-@keyframes critical-alert {
-  0%   { background-color: rgba(243, 139, 168, 0.35); }
-  50%  { background-color: rgba(243, 139, 168, 0.75); }
-  100% { background-color: rgba(243, 139, 168, 0.35); }
+@keyframes urgentPulse {
+  0% {
+    box-shadow: 0 0 6px rgba(247, 118, 142, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 14px rgba(247, 118, 142, 0.7);
+  }
+
+  100% {
+    box-shadow: 0 0 6px rgba(247, 118, 142, 0.4);
+  }
 }
 
 /* ===== GLOBAL RESET ===== */
 * {
   min-height: 0;
-  min-width: 0;
-  font-family: Lexend, "JetBrainsMono NFP", "Symbols Nerd Font Mono", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  font-family: "JetBrainsMono NFP", "JetBrains Mono Nerd Font", "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* ===== BAR BASE ===== */
 window#waybar {
-  transition: background-color 0.3s ease, opacity 0.3s ease;
-  background-color: rgba(17, 17, 27, 0.96);
-  border-right: 2px solid rgba(137, 180, 250, 0.4);
-  box-shadow: 6px 0 20px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(180deg, @bg 0%, @bg_dark 100%);
+  border-right: 1px solid @border;
 }
 
 window#waybar.hidden {
-  opacity: 0.25;
+  opacity: 0.2;
+}
+
+/* ===== MODULE BASE ===== */
+#custom-cachyos,
+#workspaces,
+#mpris,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#clock,
+#tray,
+#custom-logout,
+#custom-shutdown,
+#custom-separator {
+  padding: 10px 5px;
+  margin: 3px 4px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  color: @fg;
+  animation: fadeIn 0.4s ease;
+}
+
+
+/* ===== CACHYOS LOGO ===== */
+#custom-cachyos {
+  font-size: 20px;
+  color: @blue;
+  background: rgba(122, 162, 247, 0.08);
+  border: 1px solid rgba(122, 162, 247, 0.18);
+  margin: 12px 5px 16px 5px;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+#custom-cachyos:hover {
+  color: @bg_dark;
+  background: @blue;
+  border-color: @blue;
+  box-shadow: 0 0 18px rgba(122, 162, 247, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* ===== WORKSPACES ===== */
 #workspaces {
-  margin: 10px 0; /* Increased from 6px */
+  padding: 2px 0;
+  background: transparent;
+  margin: 0 5px;
 }
 
 #workspaces button {
-  padding: 8px 0;
-  margin: 5px 10px; /* Increased spacing between workspace buttons */
+  padding: 6px 8px;
+  margin: 4px 5px;
   border-radius: 6px;
-  background-color: rgba(30, 30, 46, 0.85);
-  border: 1px solid rgba(137, 180, 250, 0.15);
-  color: #a6adc8;
-  font-weight: 700;
-  font-size: 15px;
+  color: @fg_dim;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
   transition: all 0.2s ease;
+  min-width: 0;
+  font-size: 14px;
+  box-shadow: none;
+  text-shadow: none;
+  outline-style: none;
 }
 
-#workspaces button:hover {
-  background-color: rgba(137, 180, 250, 0.2);
-  color: #cdd6f4;
+#workspaces button.empty {
+  color: rgba(192, 202, 245, 0.15);
+}
+
+#workspaces button.occupied {
+  color: @fg;
+  background: rgba(122, 162, 247, 0.08);
+  border-bottom: 3px solid rgba(122, 162, 247, 0.82);
+  border-radius: 6px 6px 3px 3px;
 }
 
 #workspaces button.active {
-  background-color: rgba(137, 180, 250, 0.3);
-  color: #89b4fa;
-  border-left: 3px solid #89b4fa;
-  padding-left: 5px;
-  box-shadow: 0 0 10px rgba(137, 180, 250, 0.3);
+  color: @bg_dark;
+  background: @blue;
+  border: 1px solid @blue;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  font-weight: 900;
 }
 
 #workspaces button.urgent {
-  background-color: rgba(243, 139, 168, 0.35);
-  color: #f38ba8;
-  animation: urgent-pulse 1.2s infinite;
+  background: @red;
+  color: @bg_dark;
+  border-color: transparent;
+  animation: urgentPulse 1.5s ease infinite;
 }
 
-/* ===== CACHYOS LOGO ===== */
-#custom-cachyos {
-  color: #89b4fa;
-  padding: 10px 5px;   /* Increased padding */
-  margin: 10px 10px 20px 10px; /* Large bottom margin to separate from other modules */
-  border-radius: 6px;
-  background-color: rgba(30, 30, 46, 0.85);
-  border: 1px solid rgba(137, 180, 250, 0.15);
-  font-size: 18px;
-  transition: all 0.2s ease;
+#workspaces button:hover {
+  background: rgba(122, 162, 247, 0.12);
+  color: @blue;
 }
 
-#custom-cachyos:hover {
-  background-color: rgba(137, 180, 250, 0.25);
-  color: #cdd6f4;
+#workspaces button.active:hover {
+  background: @blue;
+  color: @bg_dark;
 }
 
-/* ===== MODULE BASE ===== */
-#clock,
-#pulseaudio,
-#custom-lock,
-#custom-logout,
-#custom-shutdown,
+
+/* ===== DATA MODULES ===== */
 #cpu,
-#tray,
 #memory,
-#window,
-#battery,
 #network,
-#temperature,
-#mpris {
-  padding: 10px 5px; /* Increased vertical padding */
-  margin: 6px 10px;  /* Increased horizontal margin (was 4px 6px) */
-  border-radius: 6px;
-  background-color: rgba(30, 30, 46, 0.85);
-  border: 1px solid rgba(137, 180, 250, 0.15);
-  transition: all 0.2s ease;
-}
-
-/* ===== HOVER EFFECTS ===== */
-#pulseaudio:hover,
-#custom-lock:hover,
-#custom-logout:hover,
-#custom-shutdown:hover,
-#clock:hover,
-#battery:hover,
-#network:hover,
-#temperature:hover,
-#cpu:hover,
-#memory:hover,
-#mpris:hover {
-  background-color: rgba(137, 180, 250, 0.25);
-  box-shadow: 0 0 10px rgba(137, 180, 250, 0.35);
-}
-
-/* ===== MPRIS ===== */
-#mpris {
-  color: #a6e3a1;
-}
-
-#mpris.paused {
-  color: #6c7086;
-  font-style: italic;
-}
-
-/* ===== DATA MODULE COLORS ===== */
-#cpu {
-  color: #7fe9de;
+#pulseaudio,
+#tray {
+  margin: 3px 5px;
+  border-left: 2px solid transparent;
+  border-radius: 2px 8px 8px 2px;
+  padding: 10px 5px 10px 8px;
   font-size: 13px;
-  font-weight: 700;
+}
+
+/* ===== CAVA SPECIFIC ===== */
+#custom-cava {
+  color: @blue;
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrainsMono NFP";
+  font-size: 12px;
+}
+
+#cpu {
+  color: @cyan;
+  border-left-color: @cyan;
+  background: rgba(125, 207, 255, 0.05);
+}
+
+#cpu.high {
+  color: @red;
+  border-left-color: @red;
+  background: rgba(247, 118, 142, 0.08);
 }
 
 #memory {
-  color: #d0a9ff;
-  font-size: 13px;
-  font-weight: 700;
+  color: @purple;
+  border-left-color: @purple;
+  background: rgba(187, 154, 247, 0.05);
 }
 
-#temperature {
-  color: #fab387;
-}
-
-#temperature.critical {
-  color: #ffffff;
-  animation: critical-alert 0.8s infinite;
-  border: 2px solid #f38ba8;
+#memory.critical {
+  color: @red;
+  border-left-color: @red;
+  background: rgba(247, 118, 142, 0.08);
 }
 
 #network {
-  color: #89b4fa;
+  color: @blue;
+  border-left-color: @blue;
+  background: rgba(122, 162, 247, 0.05);
 }
 
 #network.disconnected {
-  color: #6c7086;
+  color: @red;
+  border-left-color: @red;
+  background: rgba(247, 118, 142, 0.06);
 }
 
-#battery {
-  color: #f9e2af;
-}
-
-#battery.charging {
-  color: #a6e3a1;
-  animation: charging-pulse 1.5s infinite;
-}
-
-#battery.warning {
-  color: #fab387;
-}
-
-#battery.critical {
-  color: #ffffff;
-  animation: critical-alert 0.8s infinite;
-  border: 2px solid #f38ba8;
-}
-
-#clock {
-  color: #74c7ec;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 20px; /* Add space after clock if it's near the top */
-}
-
-#window {
-  color: #cdd6f4;
-}
-
-window#waybar.empty #window {
-  background-color: transparent;
+#network.linked {
+  color: @yellow;
+  border-left-color: @yellow;
 }
 
 #pulseaudio {
-  color: #b4befe;
-  font-size: 13px;
-  font-weight: 700;
+  color: @orange;
+  border-left-color: @orange;
+  background: rgba(255, 158, 100, 0.05);
 }
 
 #pulseaudio.muted {
-  color: #6c7086;
-  background-color: rgba(24, 24, 37, 0.9);
+  color: @fg_dim;
+  border-left-color: transparent;
+  background: transparent;
 }
 
-/* ===== POWER CONTROLS ===== */
-/* Added extra margin to separate these from the rest */
-#custom-lock {
-  color: #f9e2af;
-  margin-top: 10px; 
+#pulseaudio.source-muted {
+  color: @yellow;
 }
 
-#custom-logout {
-  color: #fab387;
-  font-family: "Symbols Nerd Font Mono", "JetBrainsMono NFP";
-  font-size: 16px;
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#pulseaudio:hover {
+  background: @bg_hover;
+  box-shadow: inset 0 0 12px rgba(122, 162, 247, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-#custom-shutdown {
-  color: #f38ba8;
-  font-size: 16px;
-  margin-bottom: 10px; /* Extra space at the very bottom */
+/* ===== CLOCK ===== */
+#clock {
+  color: @fg;
+  background: rgba(36, 40, 59, 0.4);
+  /* Subtle transparency */
+  border-radius: 8px;
+  margin: 12px 5px;
+  padding: 4px 12px;
+  font-weight: 600;
+  /* Slightly lighter than 900 for a cleaner look */
+  transition: all 0.3s ease;
+  /* Smooth hover transition */
 }
 
-#custom-shutdown:hover {
-  background-color: rgba(243, 139, 168, 0.4);
+#clock:hover {
+  background: rgba(122, 162, 247, 0.2);
+  color: #7aa2f7;
+  /* Highlighting the text on hover */
 }
 
 /* ===== TRAY ===== */
 #tray {
-  background-color: transparent;
-  padding: 8px 5px; /* Increased padding */
-  margin: 10px 10px;
+  color: @green;
+  border-left-color: @green;
+  background: rgba(158, 206, 106, 0.05);
 }
 
-#tray > .passive {
-  -gtk-icon-effect: dim;
-  opacity: 0.6;
+#tray>* {
+  opacity: 1;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: rgba(243, 139, 168, 0.35);
-  box-shadow: 0 0 12px rgba(243, 139, 168, 0.6);
-  animation: critical-alert 1.2s infinite;
+  background: rgba(247, 118, 142, 0.15);
+  border-radius: 4px;
 }
 
-/* ===== TOOLTIP ===== */
+/* ===== SEPARATOR ===== */
+#custom-separator {
+  color: rgba(122, 162, 247, 0.2);
+  font-size: 9px;
+  padding: 2px 0;
+  margin: 2px 8px;
+}
+
+/* ===== POWER BUTTONS ===== */
+#custom-logout {
+  color: @yellow;
+  background: rgba(224, 175, 104, 0.06);
+  border: 1px solid rgba(224, 175, 104, 0.1);
+  font-size: 15px;
+  margin-top: 10px;
+  padding: 10px 4px;
+}
+
+#custom-logout:hover {
+  color: @bg_dark;
+  background: @yellow;
+  border-color: @yellow;
+  box-shadow: 0 0 14px rgba(224, 175, 104, 0.4);
+}
+
+#custom-shutdown {
+  color: @red;
+  background: rgba(247, 118, 142, 0.06);
+  border: 1px solid rgba(247, 118, 142, 0.1);
+  font-size: 15px;
+  margin-bottom: 16px;
+  padding: 10px 4px;
+}
+
+#custom-shutdown:hover {
+  color: @bg_dark;
+  background: @red;
+  border-color: @red;
+  box-shadow: 0 0 16px rgba(247, 118, 142, 0.5);
+}
+
+/* ===== TOOLTIPS ===== */
 tooltip {
-  background-color: rgba(24, 24, 37, 0.98);
-  border: 1px solid rgba(137, 180, 250, 0.35);
-  border-radius: 8px;
-  padding: 8px 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-  color: #cdd6f4;
-  font-family: Lexend, sans-serif;
-  font-size: 13px;
+  background: @bg_dark;
+  border: 1px solid rgba(122, 162, 247, 0.35);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 tooltip label {
-  color: #cdd6f4;
-}
-
-/* ===== MODULE FADE-IN ===== */
-#workspaces,
-#clock,
-#pulseaudio,
-#cpu,
-#memory,
-#battery,
-#network,
-#custom-cachyos,
-#mpris {
-  animation: fadeIn 0.3s ease-out;
+  color: @fg;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: none;
 }

@@ -1,20 +1,34 @@
 # ============================================================================
-# WOFI CONFIGURATION - SIMPLE & CLEAN
+# WOFI CONFIGURATION - MODERN & CLEAN
 # ============================================================================
 
-width=600
-height=450
+width=450
+height=320
 location=center
 
 show=drun
 prompt=Search...
-lines=10
 
-matching=fuzzy
+# STRICTLY PREVENT RESIZING/SHAKING
+dynamic_lines=false
+allow_markup=true
+no_actions=true
+orientation=vertical
+
+match=fuzzy
 insensitive=true
 
 allow_images=true
-image_size=32
+image_size=24
 hide_scrollbar=true
 
 cache_file=/home/mehti/.cache/wofi-cache
+term=foot
+
+# Keybindings
+key_up=Up
+key_down=Down
+key_left=Left
+key_right=Right
+key_expand=Tab
+key_submit=Enter

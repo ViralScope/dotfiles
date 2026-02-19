@@ -2,48 +2,49 @@
     ### DISPLAY & POSITIONING ###
     monitor = 0
     follow = mouse
-    width = (300, 300)
+    width = (300, 450)
     height = (0, 150)
     origin = top-right
-    offset = (30, 40)
+    offset = 20x20
     
     ### APPEARANCE ###
     transparency = 10
-    corner_radius = 6
-    padding = 10
-    horizontal_padding = 12
+    corner_radius = 12
+    padding = 12
+    horizontal_padding = 14
     text_icon_padding = 10
     frame_width = 2
-    frame_color = "#33ccff"
-    separator_height = 2
+    frame_color = "#7aa2f7"
+    separator_height = 1
     separator_color = frame
     
     ### PROGRESS BAR ###
     progress_bar = true
-    progress_bar_height = 6
-    progress_bar_corner_radius = 3
-    progress_bar_min_width = 100
+    progress_bar_height = 8
+    progress_bar_corner_radius = 4
+    progress_bar_min_width = 150
     progress_bar_max_width = 300
+    progress_bar_frame_width = 1
     
     ### TEXT & FORMATTING ###
-    font = Monospace 10
-    line_height = 0
+    font = JetBrainsMono Nerd Font 10
+    line_height = 4
     markup = full
     format = "<b>%s</b>\n%b"
     alignment = left
     vertical_alignment = center
     show_age_threshold = 60
     word_wrap = yes
-    ellipsize = middle
+    ellipsize = end
     ignore_newline = no
     stack_duplicates = true
     hide_duplicate_count = false
-    show_indicators = yes
+    show_indicators = no
     
     ### ICONS ###
     icon_position = left
-    min_icon_size = 24
-    max_icon_size = 32
+    min_icon_size = 32
+    max_icon_size = 48
     icon_path = /usr/share/icons/hicolor/48x48/apps/:/usr/share/pixmaps/
     
     ### BEHAVIOR ###
@@ -64,30 +65,33 @@
     browser = xdg-open
 
 [urgency_low]
-    background = "#1e1e1e"
-    foreground = "#a0a0a0"
-    frame_color = "#33ccff"
+    # Tokyo Night Storm (Darker/Subtle)
+    background = "#1a1b26CC"
+    foreground = "#c0caf5"
+    frame_color = "#bb9af7" # Purple Accent
     timeout = 5
 
 [urgency_normal]
-    background = "#2a2a2a"
-    foreground = "#ffffff"
-    frame_color = "#33ccff"
+    # Tokyo Night Storm
+    background = "#1a1b26E6"
+    foreground = "#c0caf5"
+    frame_color = "#7aa2f7" # Blue Accent
     timeout = 8
 
 [urgency_critical]
-    background = "#ff4444"
-    foreground = "#000000"
-    frame_color = "#ff0000"
+    # Red for attention
+    background = "#1a1b26F2"
+    foreground = "#f7768e"
+    frame_color = "#f7768e" # Red Accent
     timeout = 0
 
 ### CUSTOM RULES ###
 # Volume/Brightness (quick transient notifications)
 [volume_brightness]
     summary = "*olume*|*rightness*"
-    background = "#1e1e1e"
-    foreground = "#33ccff"
-    frame_color = "#33ccff"
+    background = "#1a1b26CC"
+    foreground = "#7aa2f7"
+    frame_color = "#7aa2f7"
     timeout = 2
     history_ignore = yes
 
@@ -96,23 +100,24 @@
     summary = "*attery*"
     body = "*ritical*|*ow*"
     urgency = critical
-    background = "#ff4444"
-    foreground = "#000000"
+    background = "#f7768e"
+    foreground = "#1a1b26" # Dark text on red bg
+    frame_color = "#f7768e"
 
 # Battery Charging
 [battery_charging]
     summary = "*attery*"
     body = "*harging*"
-    background = "#1e1e1e"
-    foreground = "#5dd9ff"
-    frame_color = "#33ccff"
+    background = "#1a1b26E6"
+    foreground = "#9ece6a" # Green for charging
+    frame_color = "#9ece6a"
     timeout = 5
 
 # Media Notifications
 [media]
     category = "player"
-    background = "#1e1e1e"
-    foreground = "#a6e3a1"
-    frame_color = "#33ccff"
-    timeout = 4
+    background = "#1a1b26E6"
+    foreground = "#c0caf5"
+    frame_color = "#bb9af7"
+    timeout = 5
     history_ignore = yes

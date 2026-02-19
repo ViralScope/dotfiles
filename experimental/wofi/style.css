@@ -1,83 +1,105 @@
 /* ============================================================================
-   WOFI STYLE - CATPPUCCIN INSPIRED
-   ============================================================================ */
+ * TOKYO NIGHT PREMIUM — WOFI STYLE
+ * Matching Waybar configuration.
+ * ============================================================================ */
 
-@keyframes selected-glow {
-  0% { box-shadow: 0 0 12px rgba(137, 180, 250, 0.3); }
-  50% { box-shadow: 0 0 18px rgba(137, 180, 250, 0.5); }
-  100% { box-shadow: 0 0 12px rgba(137, 180, 250, 0.3); }
-}
+/* ===== COLOR PALETTE — TOKYO NIGHT STORM ===== */
+@define-color bg rgba(26, 27, 38, 0.88);
+@define-color bg_dark rgba(16, 16, 24, 0.97);
+@define-color bg_alt rgba(36, 40, 59, 0.55);
+@define-color bg_hover rgba(255, 255, 255, 0.04);
+@define-color border rgba(122, 162, 247, 0.15);
+@define-color fg #c0caf5;
+@define-color fg_dim rgba(192, 202, 245, 0.7);
+@define-color blue #7aa2f7;
+@define-color purple #bb9af7;
+@define-color cyan #7dcfff;
+@define-color green #9ece6a;
+@define-color red #f7768e;
+@define-color yellow #e0af68;
+@define-color orange #ff9e64;
 
 * {
-  font-family: Lexend, "JetBrainsMono NFP", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  font-family: "JetBrainsMono NFP", "JetBrains Mono Nerd Font", "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: @fg;
 }
 
 window {
-  background-color: rgba(17, 17, 27, 0.95);
-  border: 2px solid rgba(137, 180, 250, 0.3);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin: 0px;
+  border: 1px solid @border;
+  background: linear-gradient(180deg, @bg 0%, @bg_dark 100%);
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #input {
-  padding: 12px 14px;
   margin: 10px;
-  background-color: rgba(30, 30, 46, 0.7);
-  border: 2px solid transparent;
-  border-radius: 8px;
-  color: #cdd6f4;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 14px;
+  border: 1px solid rgba(122, 162, 247, 0.18);
+  border-radius: 10px;
+  background: rgba(122, 162, 247, 0.08);
+  color: @blue;
+  font-weight: 700;
+  box-shadow: none;
 }
 
 #input:focus {
-  border-color: #89b4fa;
-  box-shadow: 0 0 12px rgba(137, 180, 250, 0.3);
+  border-color: @blue;
+  background: rgba(122, 162, 247, 0.15);
+  box-shadow: 0 0 12px rgba(122, 162, 247, 0.2);
 }
 
-#entry {
-  padding: 8px 12px;
-  margin: 3px 8px;
-  border-radius: 8px;
+#inner-box {
+  margin: 5px;
+  border: none;
   background-color: transparent;
-  border: 2px solid transparent;
 }
 
-#entry:hover {
-  background-color: rgba(205, 214, 244, 0.1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: transparent;
 }
 
-#entry:selected {
-  background-color: rgba(30, 30, 46, 0.9);
-  border-color: #89b4fa;
-  animation: selected-glow 2s infinite;
+#scroll {
+  margin: 0px;
+  border: none;
 }
 
-#entry:selected #text {
-  color: #89b4fa;
+#scroll {
+  margin: 0px;
+  border: none;
 }
 
 #text {
-  color: #cdd6f4;
+  margin: 5px;
+  border: none;
+  color: @fg;
+}
+
+#entry {
+  margin: 2px 5px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+#entry:selected {
+  background-color: @blue;
+  color: @bg_dark;
+  font-weight: 900;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+#entry:selected #text {
+  color: @bg_dark;
 }
 
 #img {
   margin-right: 12px;
-}
-
-#outer-box {
-}
-
-scrollbar {
-  background-color: rgba(30, 30, 46, 0.5);
-  border-radius: 8px;
-}
-
-scrollbar slider {
-  background-color: #89b4fa;
-  border-radius: 8px;
-  min-height: 30px;
+  background-color: transparent;
 }
